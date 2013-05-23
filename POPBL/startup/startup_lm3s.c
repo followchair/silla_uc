@@ -105,10 +105,6 @@ extern void SystemInit(void);    /*!< Setup the microcontroller system(CMSIS) */
 void Default_Reset_Handler(void);   /*!< Default reset handler                */
 static void Default_Handler(void);  /*!< Default exception handler            */
 
-//from FreeRTOS
-extern void xPortPendSVHandler( void ) __attribute__ (( naked ));
-extern void xPortSysTickHandler( void );
-extern void vPortSVCHandler( void ) __attribute__ (( naked ));
 
 /**
   *@brief The minimal vector table for a Cortex M3.  Note that the proper constructs
@@ -127,11 +123,11 @@ void (* const g_pfnVectors[])(void) =
   BusFault_Handler,                    /*!< The bus fault handler             */
   UsageFault_Handler,                  /*!< The usage fault handler           */ 
   0,0,0,0,                             /*!< Reserved                          */
-  vPortSVCHandler,                         /*!< SVCall handler                    */
+  SVC_Handler,                         /*!< SVCall handler                    */
   DebugMon_Handler,                    /*!< Debug monitor handler             */
   0,                                   /*!< Reserved                          */
-  xPortPendSVHandler,                      /*!< The PendSV handler                */
-  xPortSysTickHandler,                     /*!< The SysTick handler               */
+  PendSV_Handler,                      /*!< The PendSV handler                */
+  SysTick_Handler,                     /*!< The SysTick handler               */ 
   
   /*----------External Exceptions---------------------------------------------*/
   GPIOPortA_IRQHandler,                /*!<  0: GPIO Port A                   */
@@ -218,8 +214,6 @@ void Default_Reset_Handler(void)
         "    strlt   r2, [r0], #4\n"
         "    blt     zero_loop");
 
-  /* Setup the microcontroller system. */
-  SystemInit();
     
   /* Call the application's entry point.*/
   main();
