@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -O0 -g3 -c -Dgcc -DLM3S8962 -Iheaders -I..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\portableGCC_ARM_CM3 -I..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\include -I..\..\..\..\..\..\rtsWS\utiles -I..\..\..\..\..\..\rtsWS\freeRTOS7_0_2 -Ilm3slib\driverlib -Ilm3slib -Ilm3slib\inc -Icmsis -Icmsisboot -I.">
+      <target file="timer.o" lastModified="13ed12a60b5">
+         <source file="..\..\lm3slib\driverlib\timer.c" lastModified="13c4204290e"/>
+      </target>
+      <target file="gpio.o" lastModified="13ed12a64c5">
+         <source file="..\..\lm3slib\driverlib\gpio.c" lastModified="13c4203e8ff"/>
+      </target>
+      <target file="systick.o" lastModified="13ed12a6abf">
+         <source file="..\..\lm3slib\driverlib\systick.c" lastModified="13c4203dca8"/>
+      </target>
+      <target file="tasks.o" lastModified="13ed12a6592">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\tasks.c" lastModified="13b4e2db65c"/>
+      </target>
+      <target file="sysctl.o" lastModified="13ed12a63b9">
+         <source file="..\..\lm3slib\driverlib\sysctl.c" lastModified="13c4203e980"/>
+      </target>
+      <target file="core_cm3.o" lastModified="13ed12a600e">
+         <source file="..\..\cmsis\core_cm3.c" lastModified="13c4203c34f"/>
+      </target>
+      <target file="croutine.o" lastModified="13ed12a69b7">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\croutine.c" lastModified="13ab284d912"/>
+      </target>
+      <target file="interrupt.o" lastModified="13ed12a6622">
+         <source file="..\..\lm3slib\driverlib\interrupt.c" lastModified="13c4203d833"/>
+      </target>
+      <target file="pwm.o" lastModified="13ed12a6182">
+         <source file="..\..\lm3slib\driverlib\pwm.c" lastModified="13c42046500"/>
+      </target>
+      <target file="ssi.o" lastModified="13ed12a6878">
+         <source file="..\..\lm3slib\driverlib\ssi.c" lastModified="13c420448a5"/>
+      </target>
+      <target file="queue.o" lastModified="13ed12a690e">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\queue.c" lastModified="13287ff2afd"/>
+      </target>
+      <target file="list.o" lastModified="13ed12a67c2">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\list.c" lastModified="13287ff2a42"/>
+      </target>
+      <target file="port.o" lastModified="13ed12a6964">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\portableGCC_ARM_CM3\port.c" lastModified="13ed1271430"/>
+      </target>
+      <target file="timers.o" lastModified="13ed12a63fe">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\timers.c" lastModified="13ab285a555"/>
+      </target>
+      <target file="Task_Control.o" lastModified="13ed12a61f5">
+         <source file="..\..\sources\Task_Control.c" lastModified="13ed1262c6e"/>
+      </target>
+      <target file="Task_Comunicaciones.o" lastModified="13ed12a5f5f">
+         <source file="..\..\sources\Task_Comunicaciones.c" lastModified="13ed12a5918"/>
+      </target>
+      <target file="syscalls.o" lastModified="13ed12a681f">
+         <source file="..\..\syscalls\syscalls.c" lastModified="13c4203b4b7"/>
+      </target>
+      <target file="cpu.o" lastModified="13ed12a69f7">
+         <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13c4203cece"/>
+      </target>
+      <target file="console.o" lastModified="13ed12a6a57">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\utiles\consolaLCD\console.c" lastModified="13e3fcedde5"/>
+      </target>
+      <target file="rit128x96x4.o" lastModified="13ed12a6710">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\utiles\drivers\rit128x96x4.c" lastModified="13c42c6ba92"/>
+      </target>
+      <target file="startup_lm3s.o" lastModified="13ed12a674b">
+         <source file="..\..\cmsisboot\startup\startup_lm3s.c" lastModified="13ab7b09907"/>
+      </target>
+      <target file="heap_1.o" lastModified="13ed12a6b36">
+         <source file="..\..\..\..\..\..\..\..\rtsWS\freeRTOS7_0_2\MemMang\heap_1.c" lastModified="13ab288056c"/>
+      </target>
+      <target file="main.o" lastModified="13ed12a62b6">
+         <source file="..\..\sources\main.c" lastModified="13ed129ea28"/>
+      </target>
+      <target file="system_lm3s.o" lastModified="13ed12a5fb8">
+         <source file="..\..\cmsisboot\system_lm3s.c" lastModified="13c4203c290"/>
+      </target>
+   </processor>
+</history>
