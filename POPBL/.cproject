@@ -13,7 +13,7 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="org.coocox.ExternalSettings" factoryId="org.eclipse.cdt.core.extension.container.factory">
 					<externalSetting>
-						<entry flags="" kind="includePath" name="C:\apps\CoIDE\gcc\Sourcery G++ Lite\arm-none-eabi\include"/>
+						<entry flags="" kind="includePath" name="C:\app\CoIDE\gcc\Sourcery G++ Lite\arm-none-eabi\include"/>
 						<entry flags="" kind="includePath" name="."/>
 						<entry flags="" kind="includePath" name="cmsisboot"/>
 						<entry flags="" kind="includePath" name="cmsis"/>
@@ -35,6 +35,19 @@
 			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 			<storageModule moduleId="org.eclipse.cdt.core.pathentry">
 				<pathentry kind="src" path=""/>
+				<pathentry include="C:/app/CoIDE/gcc/Sourcery G++ Lite/arm-none-eabi/include" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/cmsisboot" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/cmsis" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/lm3slib/inc" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/lm3slib" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/lm3slib/driverlib" kind="inc" path="" system="true"/>
+				<pathentry include="C:/Users/Ane/rtsWS/freeRTOS7_0_2" kind="inc" path="" system="true"/>
+				<pathentry include="C:/Users/Ane/rtsWS/utiles" kind="inc" path="" system="true"/>
+				<pathentry include="C:/Users/Ane/rtsWS/freeRTOS7_0_2/include" kind="inc" path="" system="true"/>
+				<pathentry include="C:/Users/Ane/rtsWS/freeRTOS7_0_2/portableGCC_ARM_CM3" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/headers" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/CoIDE/gcc/Sourcery G++ Lite/arm-none-eabi/include" kind="inc" path="" system="true"/>
 				<pathentry include="C:/apps/CoIDE/gcc/Sourcery G++ Lite/arm-none-eabi/include" kind="inc" path="" system="true"/>
 				<pathentry include="C:/Users/Ane/Documents/MASTER_1/POPBL/ProgramaMicrocontrolador/POPBL_freertos_hutsa/POPBL" kind="inc" path="" system="true"/>
 				<pathentry include="C:/Users/Ane/Documents/MASTER_1/POPBL/ProgramaMicrocontrolador/POPBL_freertos_hutsa/POPBL/cmsisboot" kind="inc" path="" system="true"/>
