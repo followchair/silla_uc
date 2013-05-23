@@ -1,31 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="4.5.1 -O0 -nostartfiles -Map=POPBL.map -mcpu=cortex-m3 -mthumb -LC:\Users\Ane\Documents\MASTER_1\POPBL\ProgramaMicrocontrolador\POPBL_freertos_hutsa\POPBL --gc-sections -TC:\Users\Ane\Documents\MASTER_1\POPBL\ProgramaMicrocontrolador\POPBL_freertos_hutsa\POPBL\link.ld -g">
-      <target file="POPBL.elf" lastModified="13ed12a6cb4">
-         <source file="..\obj\Task_Comunicaciones.o" lastModified="13ed12a5f5f"/>
-         <source file="..\obj\system_lm3s.o" lastModified="13ed12a5fb8"/>
-         <source file="..\obj\core_cm3.o" lastModified="13ed12a600e"/>
-         <source file="..\obj\timer.o" lastModified="13ed12a60b5"/>
-         <source file="..\obj\pwm.o" lastModified="13ed12a6182"/>
-         <source file="..\obj\Task_Control.o" lastModified="13ed12a61f5"/>
-         <source file="..\obj\main.o" lastModified="13ed12a62b6"/>
-         <source file="..\obj\sysctl.o" lastModified="13ed12a63b9"/>
-         <source file="..\obj\timers.o" lastModified="13ed12a63fe"/>
-         <source file="..\obj\gpio.o" lastModified="13ed12a64c5"/>
-         <source file="..\obj\tasks.o" lastModified="13ed12a6592"/>
-         <source file="..\obj\interrupt.o" lastModified="13ed12a6622"/>
-         <source file="..\obj\rit128x96x4.o" lastModified="13ed12a6710"/>
-         <source file="..\obj\startup_lm3s.o" lastModified="13ed12a674b"/>
-         <source file="..\obj\list.o" lastModified="13ed12a67c2"/>
-         <source file="..\obj\syscalls.o" lastModified="13ed12a681f"/>
-         <source file="..\obj\ssi.o" lastModified="13ed12a6878"/>
-         <source file="..\obj\queue.o" lastModified="13ed12a690e"/>
-         <source file="..\obj\port.o" lastModified="13ed12a6964"/>
-         <source file="..\obj\croutine.o" lastModified="13ed12a69b7"/>
-         <source file="..\obj\cpu.o" lastModified="13ed12a69f7"/>
-         <source file="..\obj\console.o" lastModified="13ed12a6a57"/>
-         <source file="..\obj\systick.o" lastModified="13ed12a6abf"/>
-         <source file="..\obj\heap_1.o" lastModified="13ed12a6b36"/>
+   <processor signature="4.5.1 -O0 -nostartfiles -Map=POPBL.map -mcpu=cortex-m3 -mthumb -LD:\POPBL\programa_uc_Aitor\POPBL --gc-sections -TD:\POPBL\programa_uc_Aitor\POPBL\link.ld -g">
+      <target file="POPBL.elf" lastModified="13ed200698a">
+         <source file="..\obj\Task_Comunicaciones.o" lastModified="13ed1f0b9ce"/>
+         <source file="..\obj\system_lm3s.o" lastModified="13ed1f0bcee"/>
+         <source file="..\obj\core_cm3.o" lastModified="13ed1f0c007"/>
+         <source file="..\obj\stellaris_1.o" lastModified="13ed1faab85"/>
+         <source file="..\obj\timer.o" lastModified="13ed1f0c36b"/>
+         <source file="..\obj\pwm.o" lastModified="13ed1f0c96e"/>
+         <source file="..\obj\Task_Control.o" lastModified="13ed20061dd"/>
+         <source file="..\obj\main.o" lastModified="13ed1fa0142"/>
+         <source file="..\obj\framebuffer.o" lastModified="13ed1f0d67e"/>
+         <source file="..\obj\sysctl.o" lastModified="13ed1f0d9fe"/>
+         <source file="..\obj\timers.o" lastModified="13ed1f0dd11"/>
+         <source file="..\obj\gpio.o" lastModified="13ed1f0e123"/>
+         <source file="..\obj\display.o" lastModified="13ed1f0e669"/>
+         <source file="..\obj\display_RIT.o" lastModified="13ed1f0eb2f"/>
+         <source file="..\obj\tasks.o" lastModified="13ed1f0f235"/>
+         <source file="..\obj\interrupt.o" lastModified="13ed1f0f695"/>
+         <source file="..\obj\rit128x96x4.o" lastModified="13ed1f0fb32"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="13ed1f0fe13"/>
+         <source file="..\obj\list.o" lastModified="13ed1f101e9"/>
+         <source file="..\obj\syscalls.o" lastModified="13ed1f10775"/>
+         <source file="..\obj\ssi.o" lastModified="13ed1f10be3"/>
+         <source file="..\obj\queue.o" lastModified="13ed1f110a5"/>
+         <source file="..\obj\port.o" lastModified="13ed1f1156c"/>
+         <source file="..\obj\croutine.o" lastModified="13ed1f11941"/>
+         <source file="..\obj\cpu.o" lastModified="13ed1f11ceb"/>
+         <source file="..\obj\console.o" lastModified="13ed1f1206e"/>
+         <source file="..\obj\systick.o" lastModified="13ed1f123ef"/>
+         <source file="..\obj\heap_1.o" lastModified="13ed1f12724"/>
       </target>
    </processor>
 </history>

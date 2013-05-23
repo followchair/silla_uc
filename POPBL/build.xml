@@ -31,10 +31,6 @@
 			<!-- compile all the c source file in the project -->
 			<fileset dir="." includes="**/*.c"/>
 			<fileset dir="." includes="**/*.s"/>
-<fileset dir="C:/Users/Ane/rtsWS/freeRTOS7_0_2" includes="**/*.c"/>
-<fileset dir="C:/Users/Ane/rtsWS/freeRTOS7_0_2" includes="**/*.s"/>
-<fileset dir="C:/Users/Ane/rtsWS/utiles" includes="**/*.c"/>
-<fileset dir="C:/Users/Ane/rtsWS/utiles" includes="**/*.s"/>
 <project outfile="${project.name}.elf" overwrite="true" type="xcode"/>
 			
 			<!-- defines -->
@@ -43,12 +39,13 @@
         <define name="LM3S8962"/>
 </defineset>
 			
-      <!-- include compile path -->
+      <!-- include compile path --><includepath path="D:\POPBL\programa_uc_Aitor\POPBL\utiles\drivers"/>
+      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\utiles\consolaLCD"/>
+      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\utiles"/>
+      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\freeRTOS7_0_2\portableGCC_ARM_CM3"/>
+      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\freeRTOS7_0_2\include"/>
+      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\freeRTOS7_0_2"/>
       <includepath path="headers"/>
-      <includepath path="C:\Users\Ane\rtsWS\freeRTOS7_0_2\portableGCC_ARM_CM3"/>
-      <includepath path="C:\Users\Ane\rtsWS\freeRTOS7_0_2\include"/>
-      <includepath path="C:\Users\Ane\rtsWS\utiles"/>
-      <includepath path="C:\Users\Ane\rtsWS\freeRTOS7_0_2"/>
       <includepath path="lm3slib/driverlib"/>
       <includepath path="lm3slib"/>
       <includepath path="lm3slib/inc"/>
