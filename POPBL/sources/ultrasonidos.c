@@ -28,12 +28,14 @@
 #include "ultrasonidos.h"
 #include "consolaLCD/console.h"
 #include "driverlib/systick.h"
+#include "system_tick.h"
 /*********************************************************************
  ** 																**
  ** DEFINITIONS AND MACROS 											**
  ** 																**
  **********************************************************************/
 #define TRUE 1
+#define LIMITE_OBSTACULO	2900.0 //useg
 /*********************************************************************
 ** 																	**
 ** GLOBAL VARIABLES 												**
@@ -46,6 +48,8 @@ tBoolean flancoPos = 0;
 int time_flanco_pos=0;
 int time_flanco_neg=0;
 int echo_OK = 0;
+int g_cycles = 0; /*Ciclos que ha cumplido el Systick*/
+extern float prueba;
 /*********************************************************************
 ** 																	**
 ** LOCAL FUNCTIONS 													**
@@ -111,14 +115,16 @@ void __attribute__((interrupt))ULTRASONIDOS_echoInt_PD4(void) {
 			 * Si el flanco ha sido positivo
 			 */
 			if (estado_pin == 0x10) {
-				time_flanco_pos = SysTickValueGet();
+				time_flanco_pos = SYSTEM_TICK_coger_valor_ticks();
+				g_cycles = 0;
 				flancoPos = 1;
 			}
 			/*
 			 * Si el flanco ha sido negativo
 			 */
 			if (estado_pin == 0x00 && flancoPos == 1) {
-				time_flanco_neg = SysTickValueGet();
+				time_flanco_neg = SYSTEM_TICK_coger_valor_ticks();
+				prueba=TIEMPO_ENTRE_FLANCOS;
 				flancoPos = 0;
 				echo_OK = 1;
 			}
@@ -129,17 +135,11 @@ void __attribute__((interrupt))ULTRASONIDOS_echoInt_PD4(void) {
 		GPIOPinIntClear(ul_port, uc_pin);
 }
 
-float ULTRASONIDOS_obstaculo(void){
-	float pulse_time = 0.0;
-	int ticks = 0;
-	char str [128];
-	ticks = (8000000 + time_flanco_pos - time_flanco_neg)% 8000000;
-	pulse_time = (ticks)/(SysCtlClockGet()/1000000.0);
-	return pulse_time;
-//	consolePrintStr( 1, 2,"echotime:");
-//	sprintf(str," %f us",pulse_time);
-//	consolePrintStr( 1,3,str);
-//	 refreshConsoleLine(2);
-//	 refreshConsoleLine(3);
-	//return 1;
+tBoolean ULTRASONIDOS_obstaculo(float echowidth){
+	tBoolean b_obstaculo = 0;
+
+	if( echowidth < LIMITE_OBSTACULO ){
+		b_obstaculo = 1;
+	}
+	return b_obstaculo;
 }

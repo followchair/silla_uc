@@ -26,14 +26,14 @@ int main( void )
 	/*
 	 * Inicializar el Systick
 	 */
-	  SysTickPeriodSet(8000000);
-	  SysTickEnable();
+	 // SysTickPeriodSet(8000000);
+	 // SysTickEnable();
   initConsole();
   consolePrintStr( 1, 1,"Hello POPBL");
   refreshConsoleLine(1);
   xTaskCreate( vTask_Control,"vTask_Control",200, 1000 , 3, NULL );
   xTaskCreate( vTask_Comunicaciones,"vTask_Comunicaciones",200, 2000 ,2, NULL );
-  xTaskCreate( vTask_Seguridad,"vTask_Seguridad",200, 2000 , 1, NULL );
+  xTaskCreate( vTask_Seguridad,"vTask_Seguridad",200, 100 , 1, NULL );
   vTaskStartScheduler();
   for( ;; );
 }

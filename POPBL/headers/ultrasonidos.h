@@ -35,13 +35,17 @@
 #include "pines.h"
 #include "pwm_generico.h"
 #include "stdio.h"
+
+#define		PERIODO		8000.0
+#define		TICKS_ENTRE_FLANCOS		time_flanco_pos - time_flanco_neg + g_cycles*PERIODO
+#define		TIEMPO_ENTRE_FLANCOS	(TICKS_ENTRE_FLANCOS*1000.0)/(PERIODO); // en uSeg
 /*****************************************************************************
 **					 														**
 ** EXPORTED FUNCTIONS 														**
 ** 																			**
 ******************************************************************************/
 void ULTRASONIDOS_ini(void);
-float ULTRASONIDOS_obstaculo(void);
+tBoolean ULTRASONIDOS_obstaculo(float echowidth);
 /*****************************************************************************
 ** 																			**
 ** EOF 																		**
