@@ -4,6 +4,7 @@
 #include "consolaLCD/console.h"
 
 char str_con[128];
+int cntControl=0;
 
 void vTask_Control( void *pvParameters ){
 
@@ -14,7 +15,7 @@ void vTask_Control( void *pvParameters ){
 	  while(1)
 	  {
 	    for(i=0;i<16000;i++);
-	    cnt++;
+	    cntControl++;
 
 //	    sprintf(str_con,"cnt control: %d",cnt);
 //	    consolePrintStr(1,10,str_con);

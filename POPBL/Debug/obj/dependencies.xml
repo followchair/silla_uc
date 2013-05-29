@@ -18,24 +18,28 @@
          <include file="..\..\lm3slib\driverlib\interrupt.h"/>
          <include file="..\..\lm3slib\driverlib\timer.h"/>
       </source>
+      <source file="..\..\syscalls\syscalls.c" lastModified="13ed22d925c">
+      </source>
       <source file="..\..\headers\system_tick.h" lastModified="13ee69a9ab8">
          <include file="..\..\lm3slib\driverlib\systick.h"/>
-      </source>
-      <source file="..\..\syscalls\syscalls.c" lastModified="13ed22d925c">
       </source>
       <source file="..\..\lm3slib\inc\hw_nvic.h" lastModified="13ee5c8a125">
       </source>
       <source file="..\..\headers\display_generico.h" lastModified="13ed22d826d">
          <include file="..\..\lm3slib\inc\hw_types.h"/>
       </source>
-      <source file="..\..\sources\Task_Seguridad.c" lastModified="13eebea08bc">
+      <source file="..\..\sources\Task_Seguridad.c" lastModified="13ef1051860">
          <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
          <include file="..\..\freeRTOS7_0_2\include\task.h"/>
-         <include file="..\..\utiles\consolaLCD\console.h"/>
          <include file="..\..\headers\task_seguridad.h"/>
          <include file="..\..\headers\ultrasonidos.h"/>
       </source>
       <source file="..\..\cmsis\core_cm3.h" lastModified="13ed22d8a0f">
+      </source>
+      <source file="..\..\sources\Task_Control.c" lastModified="13ef04cd914">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\utiles\consolaLCD\console.h"/>
       </source>
       <source file="..\..\lm3slib\driverlib\debug.h" lastModified="13ee5c8a0f7">
       </source>
@@ -60,7 +64,7 @@
          <include file="..\..\cmsisboot\lm3s_cmsis.h"/>
          <include file="..\..\cmsisboot\lm3s_config.h"/>
       </source>
-      <source file="..\..\headers\ultrasonidos.h" lastModified="13eebd87330">
+      <source file="..\..\headers\ultrasonidos.h" lastModified="13ef123fa7c">
          <include file="..\..\lm3slib\inc\hw_memmap.h"/>
          <include file="..\..\lm3slib\inc\hw_types.h"/>
          <include file="..\..\lm3slib\inc\hw_ints.h"/>
@@ -108,7 +112,7 @@
       <source file="..\..\lm3slib\driverlib\ssi.h" lastModified="13ed22d8290">
          <include file="..\..\lm3slib\driverlib\sysctl.h"/>
       </source>
-      <source file="..\..\sources\main.c" lastModified="13eebcec7f8">
+      <source file="..\..\sources\main.c" lastModified="13ef0942d74">
          <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
          <include file="..\..\freeRTOS7_0_2\include\task.h"/>
          <include file="..\..\lm3slib\inc\hw_memmap.h"/>
@@ -188,6 +192,11 @@
          <include file="..\..\freeRTOS7_0_2\include\task.h"/>
          <include file="..\..\freeRTOS7_0_2\include\croutine.h"/>
       </source>
+      <source file="..\..\sources\Task_Comunicaciones.c" lastModified="13ef04cd9aa">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\utiles\consolaLCD\console.h"/>
+      </source>
       <source file="..\..\headers\pines.h" lastModified="13ee6428860">
          <include file="..\..\lm3slib\inc\hw_types.h"/>
          <include file="..\..\lm3slib\inc\hw_memmap.h"/>
@@ -200,7 +209,7 @@
       </source>
       <source file="..\..\lm3slib\inc\hw_gpio.h" lastModified="13ed22d829b">
       </source>
-      <source file="..\..\cmsisboot\startup\startup_lm3s.c" lastModified="13ee662c03a">
+      <source file="..\..\cmsisboot\startup\startup_lm3s.c" lastModified="13ef144488f">
       </source>
       <source file="..\..\utiles\drivers\rit128x96x4.h" lastModified="13ee5cd7e4e">
       </source>
@@ -244,6 +253,13 @@
       </source>
       <source file="..\..\lm3slib\driverlib\pwm.h" lastModified="13ed22d8288">
       </source>
+      <source file="..\..\sources\task_display.c" lastModified="13ef106beae">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\utiles\consolaLCD\console.h"/>
+         <include file="..\..\headers\task_seguridad.h"/>
+         <include file="..\..\headers\ultrasonidos.h"/>
+      </source>
       <source file="..\..\freeRTOS7_0_2\include\portable.h" lastModified="13ed238d678">
          <include file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h"/>
          <include file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h"/>
@@ -277,12 +293,6 @@
          <include file="..\..\lm3slib\driverlib\cpu.h"/>
       </source>
       <source file="..\..\lm3slib\driverlib\gpio.h" lastModified="13ed22d8277">
-      </source>
-      <source file="..\..\sources\ultrasonidos.c" lastModified="13eebe363e7">
-         <include file="..\..\headers\ultrasonidos.h"/>
-         <include file="..\..\utiles\consolaLCD\console.h"/>
-         <include file="..\..\lm3slib\driverlib\systick.h"/>
-         <include file="..\..\headers\system_tick.h"/>
       </source>
       <source file="..\..\freeRTOS7_0_2\include\task.h" lastModified="13ed2380b61">
          <include file="..\..\freeRTOS7_0_2\include\portable.h"/>

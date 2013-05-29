@@ -37,8 +37,10 @@
 #include "stdio.h"
 
 #define		PERIODO		8000.0
-#define		TICKS_ENTRE_FLANCOS		time_flanco_pos - time_flanco_neg + g_cycles*PERIODO
-#define		TIEMPO_ENTRE_FLANCOS	(TICKS_ENTRE_FLANCOS*1000.0)/(PERIODO); // en uSeg
+//#define		TICKS_ENTRE_FLANCOS		time_flanco_pos_obs - time_flanco_neg_obs + g_cycles*PERIODO
+#define		TIEMPO_ENTRE_FLANCOS_OBS	((time_flanco_pos_obs - time_flanco_neg_obs + g_cycles*PERIODO)*1000.0)/(PERIODO); // en uSeg
+#define		TIEMPO_ENTRE_FLANCOS_ESC	((time_flanco_pos_esc - time_flanco_neg_esc + g_cycles*PERIODO)*1000.0)/(PERIODO); // en uSeg
+
 /*****************************************************************************
 **					 														**
 ** EXPORTED FUNCTIONS 														**
@@ -46,6 +48,7 @@
 ******************************************************************************/
 void ULTRASONIDOS_ini(void);
 tBoolean ULTRASONIDOS_obstaculo(float echowidth);
+tBoolean ULTRASONIDOS_escalon(float echowidth);
 /*****************************************************************************
 ** 																			**
 ** EOF 																		**

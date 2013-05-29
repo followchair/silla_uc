@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include "consolaLCD/console.h"
 char str_com[128];
+int cntComm = 0;
+
 void vTask_Comunicaciones( void *pvParameters ){
 
 	  int i,cnt1=0;
@@ -12,7 +14,7 @@ void vTask_Comunicaciones( void *pvParameters ){
 	  while(1)
 	  {
 	    for(i=0;i<16000;i++);
-	    cnt1++;
+	    cntComm++;
 
 //	    sprintf(str_com,"cnt com.: %d",cnt1);
 //	    consolePrintStr(1,9,str_com);
