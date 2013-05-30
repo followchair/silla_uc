@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.5.1 -O0 -nostartfiles -Map=POPBL.map -mcpu=cortex-m3 -mthumb -LD:\POPBL\programa_uc_Aitor\POPBL --gc-sections -TD:\POPBL\programa_uc_Aitor\POPBL\link.ld -g">
+<<<<<<< HEAD
       <target file="POPBL.elf" lastModified="13ef62cf816">
          <source file="..\obj\Task_Comunicaciones.o" lastModified="13ef62c6e91"/>
          <source file="..\obj\pines.o" lastModified="13ef62c71d0"/>
@@ -35,6 +36,39 @@
          <source file="..\obj\systick.o" lastModified="13ef62ce7d7"/>
          <source file="..\obj\heap_1.o" lastModified="13ef62ceb14"/>
          <source file="..\obj\ultrasonidos.o" lastModified="13ef62cefa6"/>
+=======
+      <target file="POPBL.elf" lastModified="13ef60eebed">
+         <source file="..\obj\Task_Comunicaciones.o" lastModified="13ef5b44b8c"/>
+         <source file="..\obj\system_lm3s.o" lastModified="13ef5b44f67"/>
+         <source file="..\obj\core_cm3.o" lastModified="13ef5b45423"/>
+         <source file="..\obj\stellaris_1.o" lastModified="13ef5b45802"/>
+         <source file="..\obj\timer.o" lastModified="13ef5b45b5c"/>
+         <source file="..\obj\pwm.o" lastModified="13ef5b45edc"/>
+         <source file="..\obj\Task_Control.o" lastModified="13ef60edd49"/>
+         <source file="..\obj\main.o" lastModified="13ef60ee190"/>
+         <source file="..\obj\framebuffer.o" lastModified="13ef5b46f30"/>
+         <source file="..\obj\sysctl.o" lastModified="13ef5b47366"/>
+         <source file="..\obj\timers.o" lastModified="13ef5b4769d"/>
+         <source file="..\obj\gpio.o" lastModified="13ef5b47ab0"/>
+         <source file="..\obj\display.o" lastModified="13ef5b4800a"/>
+         <source file="..\obj\display_RIT.o" lastModified="13ef5b4842c"/>
+         <source file="..\obj\tasks.o" lastModified="13ef5b48853"/>
+         <source file="..\obj\interrupt.o" lastModified="13ef5b48b70"/>
+         <source file="..\obj\rit128x96x4.o" lastModified="13ef5b48ea7"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="13ef5b49167"/>
+         <source file="..\obj\list.o" lastModified="13ef5b495a4"/>
+         <source file="..\obj\syscalls.o" lastModified="13ef5b49a1f"/>
+         <source file="..\obj\ssi.o" lastModified="13ef5b49da9"/>
+         <source file="..\obj\adc.o" lastModified="13ef5b4a220"/>
+         <source file="..\obj\queue.o" lastModified="13ef5b4a7eb"/>
+         <source file="..\obj\port.o" lastModified="13ef5b4ac35"/>
+         <source file="..\obj\pwm_generico.o" lastModified="13ef5b4af79"/>
+         <source file="..\obj\croutine.o" lastModified="13ef5b4b2da"/>
+         <source file="..\obj\cpu.o" lastModified="13ef5b4b7d4"/>
+         <source file="..\obj\console.o" lastModified="13ef5b4bbe4"/>
+         <source file="..\obj\systick.o" lastModified="13ef5b4bf36"/>
+         <source file="..\obj\heap_1.o" lastModified="13ef5b4c2e8"/>
+>>>>>>> feature_control
       </target>
    </processor>
 </history>

@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
+<<<<<<< HEAD
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -O0 -g3 -c -Dgcc -DLM3S8962 -Iutiles\drivers -IfreeRTOS7_0_2\portableGCC_ARM_CM3 -IfreeRTOS7_0_2\include -IfreeRTOS7_0_2\MemMang -Iutiles -Iheaders -Ilm3slib\driverlib -Ilm3slib -Ilm3slib\inc -Icmsis -Icmsisboot -I.">
       <target file="timer.o" lastModified="13ef62c7d83">
          <source file="..\..\lm3slib\driverlib\timer.c" lastModified="13ef5ac4996"/>
@@ -98,6 +99,97 @@
          <source file="..\..\sources\main.c" lastModified="13ef62b0611"/>
       </target>
       <target file="system_lm3s.o" lastModified="13ef62c75f7">
+=======
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -O0 -g3 -c -Dgcc -DLM3S8962 -Icmsisboot -Iutiles -Iutiles\drivers -Iutiles\consolaLCD -Iheaders -IfreeRTOS7_0_2\portableGCC_ARM_CM3 -IfreeRTOS7_0_2\include -IfreeRTOS7_0_2\MemMang -IfreeRTOS7_0_2 -Ilm3slib\inc -Ilm3slib\driverlib -Ilm3slib -Icmsis -I.">
+      <target file="timer.o" lastModified="13ef5b45b5c">
+         <source file="..\..\lm3slib\driverlib\timer.c" lastModified="13ef5ac4996"/>
+      </target>
+      <target file="gpio.o" lastModified="13ef5b47ab0">
+         <source file="..\..\lm3slib\driverlib\gpio.c" lastModified="13ef5ac4185"/>
+      </target>
+      <target file="systick.o" lastModified="13ef5b4bf36">
+         <source file="..\..\lm3slib\driverlib\systick.c" lastModified="13ef5ac3b53"/>
+      </target>
+      <target file="tasks.o" lastModified="13ef5b48853">
+         <source file="..\..\freeRTOS7_0_2\tasks.c" lastModified="13ed27fa1a2"/>
+      </target>
+      <target file="display.o" lastModified="13ef5b4800a">
+         <source file="..\..\sources\display.c" lastModified="13ed22d82ad"/>
+      </target>
+      <target file="sysctl.o" lastModified="13ef5b47366">
+         <source file="..\..\lm3slib\driverlib\sysctl.c" lastModified="13ef5ac4231"/>
+      </target>
+      <target file="core_cm3.o" lastModified="13ef5b45423">
+         <source file="..\..\cmsis\core_cm3.c" lastModified="13ef5ac1fe9"/>
+      </target>
+      <target file="croutine.o" lastModified="13ef5b4b2da">
+         <source file="..\..\freeRTOS7_0_2\croutine.c" lastModified="13ed27fa02c"/>
+      </target>
+      <target file="interrupt.o" lastModified="13ef5b48b70">
+         <source file="..\..\lm3slib\driverlib\interrupt.c" lastModified="13ef5ac3c3d"/>
+      </target>
+      <target file="pwm.o" lastModified="13ef5b45edc">
+         <source file="..\..\lm3slib\driverlib\pwm.c" lastModified="13ef5ac5813"/>
+      </target>
+      <target file="ssi.o" lastModified="13ef5b49da9">
+         <source file="..\..\lm3slib\driverlib\ssi.c" lastModified="13ef5ac4e5e"/>
+      </target>
+      <target file="queue.o" lastModified="13ef5b4a7eb">
+         <source file="..\..\freeRTOS7_0_2\queue.c" lastModified="13ed27fa164"/>
+      </target>
+      <target file="display_RIT.o" lastModified="13ef5b4842c">
+         <source file="..\..\sources\display_RIT.c" lastModified="13ed22d82af"/>
+      </target>
+      <target file="list.o" lastModified="13ef5b495a4">
+         <source file="..\..\freeRTOS7_0_2\list.c" lastModified="13ed27fa116"/>
+      </target>
+      <target file="port.o" lastModified="13ef5b4ac35">
+         <source file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\port.c" lastModified="13ed27fa135"/>
+      </target>
+      <target file="timers.o" lastModified="13ef5b4769d">
+         <source file="..\..\freeRTOS7_0_2\timers.c" lastModified="13ed27fa1b2"/>
+      </target>
+      <target file="Task_Control.o" lastModified="13ef624df88">
+         <source file="..\..\sources\Task_Control.c" lastModified="13ef624c50e"/>
+      </target>
+      <target file="framebuffer.o" lastModified="13ef5b46f30">
+         <source file="..\..\sources\framebuffer.c" lastModified="13ed22d82b0"/>
+      </target>
+      <target file="Task_Comunicaciones.o" lastModified="13ef5b44b8c">
+         <source file="..\..\sources\Task_Comunicaciones.c" lastModified="13ed22d82ab"/>
+      </target>
+      <target file="syscalls.o" lastModified="13ef5b49a1f">
+         <source file="..\..\syscalls\syscalls.c" lastModified="13ef5ac1bcb"/>
+      </target>
+      <target file="pwm_generico.o" lastModified="13ef5b4af79">
+         <source file="..\..\sources\pwm_generico.c" lastModified="13ed230dfd3"/>
+      </target>
+      <target file="cpu.o" lastModified="13ef5b4b7d4">
+         <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13ef5ac2e83"/>
+      </target>
+      <target file="stellaris_1.o" lastModified="13ef5b45802">
+         <source file="..\..\sources\simulink_code\stellaris_1.c" lastModified="13eeb6f0132"/>
+      </target>
+      <target file="adc.o" lastModified="13ef5b4a220">
+         <source file="..\..\lm3slib\driverlib\adc.c" lastModified="13ef5ac67f6"/>
+      </target>
+      <target file="rit128x96x4.o" lastModified="13ef5b48ea7">
+         <source file="..\..\utiles\drivers\rit128x96x4.c" lastModified="13ed27f0eda"/>
+      </target>
+      <target file="console.o" lastModified="13ef5b4bbe4">
+         <source file="..\..\utiles\consolaLCD\console.c" lastModified="13ed27f0eab"/>
+      </target>
+      <target file="startup_lm3s.o" lastModified="13ef5b49167">
+         <source file="..\..\cmsisboot\startup\startup_lm3s.c" lastModified="13ef5b43859"/>
+      </target>
+      <target file="heap_1.o" lastModified="13ef5b4c2e8">
+         <source file="..\..\freeRTOS7_0_2\MemMang\heap_1.c" lastModified="13ed2830582"/>
+      </target>
+      <target file="main.o" lastModified="13ef60ee190">
+         <source file="..\..\sources\main.c" lastModified="13ef60eb615"/>
+      </target>
+      <target file="system_lm3s.o" lastModified="13ef5b44f67">
+>>>>>>> feature_control
          <source file="..\..\cmsisboot\system_lm3s.c" lastModified="13ef5b26eb5"/>
       </target>
    </processor>
