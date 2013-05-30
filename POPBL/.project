@@ -62,16 +62,4 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>freeRTOS7_0_2</name>
-			<type>2</type>
-			<location>C:/Users/Ane/rtsWS/freeRTOS7_0_2</location>
-		</link>
-		<link>
-			<name>utiles</name>
-			<type>2</type>
-			<location>C:/Users/Ane/rtsWS/utiles</location>
-		</link>
-	</linkedResources>
 </projectDescription>

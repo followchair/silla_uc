@@ -31,10 +31,6 @@
 			<!-- compile all the c source file in the project -->
 			<fileset dir="." includes="**/*.c"/>
 			<fileset dir="." includes="**/*.s"/>
-<fileset dir="C:/Users/Ane/rtsWS/freeRTOS7_0_2" includes="**/*.c"/>
-<fileset dir="C:/Users/Ane/rtsWS/freeRTOS7_0_2" includes="**/*.s"/>
-<fileset dir="C:/Users/Ane/rtsWS/utiles" includes="**/*.c"/>
-<fileset dir="C:/Users/Ane/rtsWS/utiles" includes="**/*.s"/>
 <project outfile="${project.name}.elf" overwrite="true" type="xcode"/>
 			
 			<!-- defines -->
@@ -44,11 +40,12 @@
 </defineset>
 			
       <!-- include compile path -->
+      <includepath path="utiles/drivers"/>
+      <includepath path="freeRTOS7_0_2/portableGCC_ARM_CM3"/>
+      <includepath path="freeRTOS7_0_2/include"/>
+      <includepath path="freeRTOS7_0_2/MemMang"/>
+      <includepath path="utiles"/>
       <includepath path="headers"/>
-      <includepath path="C:\Users\Ane\rtsWS\freeRTOS7_0_2\portableGCC_ARM_CM3"/>
-      <includepath path="C:\Users\Ane\rtsWS\freeRTOS7_0_2\include"/>
-      <includepath path="C:\Users\Ane\rtsWS\utiles"/>
-      <includepath path="C:\Users\Ane\rtsWS\freeRTOS7_0_2"/>
       <includepath path="lm3slib/driverlib"/>
       <includepath path="lm3slib"/>
       <includepath path="lm3slib/inc"/>

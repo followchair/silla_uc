@@ -1,6 +1,6 @@
 /*********************************************************************
 ** 																	**
-** project : PFinal_Vitroceramica									**
+** project : POPBL													**
 ** filename : pwm_generico.c										**
 ** version : 1 														**
 ** date : December 19, 2012											**

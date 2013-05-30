@@ -1,9 +1,9 @@
 /*********************************************************************
 ** 																	**
 ** project : POPBL			 										**
-** filename : task_display.c										**
+** filename : task_seguridad.c										**
 ** version : 1 														**
-** date : May, 29, 2013 											**
+** date : May, 27, 2013 											**
 ** 																	**
 **********************************************************************
 ** 																	**
@@ -15,11 +15,11 @@
 **VERSION HISTORY:													**
 **----------------													**
 **Version : 1														**
-**Date : May, 29, 2013												**
+**Date : May, 27, 2013												**
 **Revised by :														**
 **Description : Original version. 									**
 *********************************************************************/
-#define _TASK_DISPLAY_C_SRC
+#define _TASK_SEGURIDAD_C_SRC
 /*********************************************************************
 **																	**
 ** MODULES USED 													**
@@ -27,72 +27,70 @@
 **********************************************************************/
 #include "FreeRTOS.h"
 #include "task.h"
-#include <stdio.h>
-#include "consolaLCD/console.h"
 #include "task_seguridad.h"
 #include "ultrasonidos.h"
 
-
-extern int cntSegur;
-extern int cntControl;
-extern int cntComm;
-extern float distancia_obs;
-extern float distancia_esc;
-extern tBoolean obstaculo;
-extern tBoolean escalon;
-extern tBoolean g_parada_seguridad;
-char str[128];
+float gf_uSecho_widht_obs=0;
+float gf_uSecho_widht_esc=0;
+extern tBoolean echo_OK_Obs;
+extern tBoolean echo_OK_Esc;
+int cntSegur =0;
+float distancia_obs = 0;
+float distancia_esc = 0;
+tBoolean obstaculo = 0;
+tBoolean escalon = 0;
+tBoolean g_parada_seguridad = 0;
 /*********************************************************************
 ** 																	**
 ** LOCAL FUNCTIONS 													**
 ** 																	**
 **********************************************************************/
 /**
- * @brief  Tarea encargada de escribir en la pantalla
+ * @brief  Tarea encargada de la seguridad
  *
  * @return      -
  *
- *
+ * Ultrasonidos
 */
-void vTask_Display( void *pvParameters ){
+void vTask_Seguridad( void *pvParameters ){
 
 	portTickType xLastWakeTime, period = (portTickType) pvParameters;
 	xLastWakeTime=xTaskGetTickCount();
-	initConsole();
-	consolePrintStr( 1, 1,"Hello POPBL");
 
-	while (1){
+	SEGURIDAD_ini();
 
-//		consolePrintStr( 1, 2,"echotime:");
-//		sprintf(str," %.2f us",gf_uSecho_widht);
-//		consolePrintStr( 1,3,str);
+	while(1)
+	{
+	    cntSegur++;
 
-		sprintf(str,"Obstaculo: %d ",obstaculo);
-		consolePrintStr( 1,2,str);
+	    if (echo_OK_Obs == 1){
+	    	obstaculo = ULTRASONIDOS_obstaculo(gf_uSecho_widht_obs);
+	    	distancia_obs = gf_uSecho_widht_obs / 58.0;
+	    	echo_OK_Obs = 0;
+	    }
 
-		sprintf(str,"distan: %.2f cm", distancia_obs);
-		consolePrintStr( 1,3,str);
+	    if (echo_OK_Esc == 1){
+	   	    escalon = ULTRASONIDOS_escalon(gf_uSecho_widht_esc);
+	   	    distancia_esc = gf_uSecho_widht_esc / 58.0;
+	   	    echo_OK_Esc = 0;
+	   	}
 
-		sprintf(str,"Escalon: %d ",escalon);
-		consolePrintStr( 1,5,str);
+	    /*	Mirar si hay alguna emergencia para que la silla se pare	*/
+	    if ((obstaculo == 1)||(escalon == 1))	g_parada_seguridad = 1;
+	    else 	g_parada_seguridad = 0;
 
-		sprintf(str,"distan: %.2f cm", distancia_esc);
-		consolePrintStr( 1,6,str);
-
-		sprintf(str,"Emerg: %d cm", g_parada_seguridad);
-		consolePrintStr( 1,7,str);
-
-		sprintf(str,"cnt com.: %d",cntComm);
-		consolePrintStr(1,9,str);
-
-		sprintf(str,"cnt control: %d",cntControl);
-		consolePrintStr(1,10,str);
-
-	    sprintf(str,"cnt Segur: %d",cntSegur);
-	    consolePrintStr(1,11,str);
-
-	    refreshConsole();
-
-		vTaskDelayUntil(&xLastWakeTime, period/portTICK_RATE_MS);
-	}
+	    vTaskDelayUntil(&xLastWakeTime, period/portTICK_RATE_MS);
+  }
 }
+
+/**
+ * @brief  Se inicializan los modulos necesarios para las funciones de seguridad
+ *
+ * @return      -
+ *
+ * PWM, pines etc.
+ */
+void SEGURIDAD_ini(void){
+	ULTRASONIDOS_ini();
+}
+
