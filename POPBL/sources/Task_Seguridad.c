@@ -39,6 +39,7 @@ float distancia_obs = 0;
 float distancia_esc = 0;
 tBoolean obstaculo = 0;
 tBoolean escalon = 0;
+tBoolean g_parada_seguridad = 0;
 /*********************************************************************
 ** 																	**
 ** LOCAL FUNCTIONS 													**
@@ -73,6 +74,10 @@ void vTask_Seguridad( void *pvParameters ){
 	   	    distancia_esc = gf_uSecho_widht_esc / 58.0;
 	   	    echo_OK_Esc = 0;
 	   	}
+
+	    /*	Mirar si hay alguna emergencia para que la silla se pare	*/
+	    if ((obstaculo == 1)||(escalon == 1))	g_parada_seguridad = 1;
+	    else 	g_parada_seguridad = 0;
 
 	    vTaskDelayUntil(&xLastWakeTime, period/portTICK_RATE_MS);
   }

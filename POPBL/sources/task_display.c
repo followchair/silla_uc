@@ -40,6 +40,7 @@ extern float distancia_obs;
 extern float distancia_esc;
 extern tBoolean obstaculo;
 extern tBoolean escalon;
+extern tBoolean g_parada_seguridad;
 char str[128];
 /*********************************************************************
 ** 																	**
@@ -67,15 +68,18 @@ void vTask_Display( void *pvParameters ){
 //		consolePrintStr( 1,3,str);
 
 		sprintf(str,"Obstaculo: %d ",obstaculo);
-		consolePrintStr( 1,3,str);
+		consolePrintStr( 1,2,str);
 
 		sprintf(str,"distan: %.2f cm", distancia_obs);
-		consolePrintStr( 1,4,str);
+		consolePrintStr( 1,3,str);
 
 		sprintf(str,"Escalon: %d ",escalon);
-		consolePrintStr( 1,6,str);
+		consolePrintStr( 1,5,str);
 
 		sprintf(str,"distan: %.2f cm", distancia_esc);
+		consolePrintStr( 1,6,str);
+
+		sprintf(str,"Emerg: %d cm", g_parada_seguridad);
 		consolePrintStr( 1,7,str);
 
 		sprintf(str,"cnt com.: %d",cntComm);
