@@ -88,6 +88,16 @@
       <source file="..\..\lm3slib\driverlib\ssi.h" lastModified="13ef5ac4ed0">
          <include file="..\..\lm3slib\driverlib\sysctl.h"/>
       </source>
+      <source file="..\..\sources\main.c" lastModified="13ef60ec1cd">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\sysctl.h"/>
+         <include file="..\..\lm3slib\driverlib\gpio.h"/>
+         <include file="..\..\utiles\consolaLCD\console.h"/>
+         <include file="..\..\headers\pwm_generico.h"/>
+      </source>
       <source file="..\..\lm3slib\driverlib\ssi.c" lastModified="13ef5ac4e5e">
          <include file="..\..\lm3slib\inc\hw_ints.h"/>
          <include file="..\..\lm3slib\inc\hw_memmap.h"/>

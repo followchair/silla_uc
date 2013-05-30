@@ -30,10 +30,9 @@
 double ref_motor1 = 0;
 double ref_motor2 = 0;
 unsigned long int periodo = 20000;
-int i = 0;
 float duty1 = 0;
 float duty2 = 0;
-
+extern tBoolean g_parada_seguridad;
 
 /*---------------------------------------------------------------*/
 /*------------------Funciones privadas --------------------------*/
@@ -109,18 +108,18 @@ void rt_OneStep(void)
   /* Set model inputs here */
 
 
-//@todo quitar if, solo para debug
+//@todo asignar a cada variable su sensor (al juntar programa con el de ane)
 
-  if(i == 0){
-	  stellaris_1_U.Sens1 = 0;
-	  stellaris_1_U.Sens2 = 0;
-	  stellaris_1_U.Sens3 = 0;
-	  stellaris_1_U.Sens4 = 0;
-	  stellaris_1_U.Sens5 = 0;
-	  stellaris_1_U.Sens6 = 0;
-	  stellaris_1_U.STOP = false;
-	  i = 1;
-  }
+
+  stellaris_1_U.Sens1 = 0;
+  stellaris_1_U.Sens2 = 0;
+  stellaris_1_U.Sens3 = 0;
+  stellaris_1_U.Sens4 = 0;
+  stellaris_1_U.Sens5 = 0;
+  stellaris_1_U.Sens6 = 0;
+  stellaris_1_U.STOP = g_parada_seguridad;
+//  i = 1;
+
 
 
   /* Step the model */
@@ -143,7 +142,7 @@ void rt_OneStep(void)
 
   /* Activar PWM*/
 
-  //@todo Cambiar puertos PWM, estos estan ocupados por irune -- Ultrasonidos
+
   PWM_GENERICO_salida_init(PWM4, periodo);
   PWM_GENERICO_salida_init(PWM5, periodo);
 
