@@ -249,7 +249,7 @@ tBoolean ULTRASONIDOS_obstaculo(float echowidth){
 tBoolean ULTRASONIDOS_escalon(float echowidth){
 	tBoolean b_escalon = 0;
 
-	if( echowidth > LIMITE_ESCALON ){
+	if(( echowidth > LIMITE_ESCALON )||( echowidth < 0.0 )){
 		b_escalon = 1;
 	}
 	return b_escalon;

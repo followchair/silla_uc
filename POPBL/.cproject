@@ -13,7 +13,7 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="org.coocox.ExternalSettings" factoryId="org.eclipse.cdt.core.extension.container.factory">
 					<externalSetting>
-						<entry flags="" kind="includePath" name="C:\apps\CoIDE\gcc\Sourcery G++ Lite\arm-none-eabi\include"/>
+						<entry flags="" kind="includePath" name="C:\app\CoIDE\gcc\Sourcery G++ Lite\arm-none-eabi\include"/>
 						<entry flags="" kind="includePath" name="."/>
 						<entry flags="" kind="includePath" name="cmsis"/>
 						<entry flags="" kind="includePath" name="cmsisboot"/>
@@ -38,21 +38,21 @@
 			<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 			<storageModule moduleId="org.eclipse.cdt.core.pathentry">
 				<pathentry kind="src" path=""/>
-				<pathentry include="C:/apps/CoIDE/gcc/Sourcery G++ Lite/arm-none-eabi/include" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/cmsis" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/cmsisboot" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/lm3slib/inc" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/lm3slib" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/lm3slib/driverlib" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles/consolaLCD" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles/drivers" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/freeRTOS7_0_2" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/freeRTOS7_0_2/MemMang" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/freeRTOS7_0_2/include" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/freeRTOS7_0_2/portableGCC_ARM_CM3" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/headers" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/CoIDE/gcc/Sourcery G++ Lite/arm-none-eabi/include" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/cmsis" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/cmsisboot" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/lm3slib/inc" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/lm3slib" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/lm3slib/driverlib" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/utiles" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/utiles/consolaLCD" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/utiles/drivers" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/freeRTOS7_0_2" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/freeRTOS7_0_2/MemMang" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/freeRTOS7_0_2/include" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/freeRTOS7_0_2/portableGCC_ARM_CM3" kind="inc" path="" system="true"/>
+				<pathentry include="C:/app/POPBL/Programa_uc/POPBL/headers" kind="inc" path="" system="true"/>
 				<pathentry kind="mac" name="__GNUC__" path="" value=""/>
 				<pathentry kind="mac" name="gcc" path="" value=""/>
 				<pathentry kind="mac" name="LM3S8962" path="" value=""/>
