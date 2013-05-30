@@ -1,51 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
-   <includePath signature="/Ilm3slib\inc /Ilm3slib\driverlib /Ilm3slib /Icmsis /I.">
-      <source file="..\..\lm3slib\driverlib\cpu.h" lastModified="13ef5ac2ea8">
-      </source>
-      <source file="..\..\lm3slib\driverlib\adc.h" lastModified="13ef5ac681d">
-      </source>
-      <source file="..\..\lm3slib\driverlib\debug.h" lastModified="13ef5ac2fdb">
-      </source>
-      <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13ef5ac2e83">
-         <include file="..\..\lm3slib\driverlib\cpu.h"/>
-      </source>
-      <source file="..\..\lm3slib\driverlib\adc.c" lastModified="13ef5ac67f6">
-         <include file="..\..\lm3slib\inc\hw_adc.h"/>
-         <include file="..\..\lm3slib\inc\hw_ints.h"/>
-         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
-         <include file="..\..\lm3slib\inc\hw_types.h"/>
-         <include file="..\..\lm3slib\driverlib\adc.h"/>
-         <include file="..\..\lm3slib\driverlib\debug.h"/>
-         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
-      </source>
-      <source file="..\..\lm3slib\driverlib\gpio.h" lastModified="13ef5ac4195">
-      </source>
-      <source file="..\..\cmsis\core_cm3.c" lastModified="13ef5ac23d1">
-      </source>
-      <source file="..\..\lm3slib\inc\hw_sysctl.h" lastModified="13ef5ac424e">
-      </source>
-      <source file="..\..\lm3slib\driverlib\gpio.c" lastModified="13ef5ac4185">
-         <include file="..\..\lm3slib\inc\hw_gpio.h"/>
-         <include file="..\..\lm3slib\inc\hw_ints.h"/>
-         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
-         <include file="..\..\lm3slib\inc\hw_sysctl.h"/>
-         <include file="..\..\lm3slib\inc\hw_types.h"/>
-         <include file="..\..\lm3slib\driverlib\debug.h"/>
-         <include file="..\..\lm3slib\driverlib\gpio.h"/>
-         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+   <includePath signature="/Icmsisboot /Iutiles /Iutiles\drivers /Iutiles\consolaLCD /Iheaders /IfreeRTOS7_0_2\portableGCC_ARM_CM3 /IfreeRTOS7_0_2\include /IfreeRTOS7_0_2\MemMang /IfreeRTOS7_0_2 /Ilm3slib\inc /Ilm3slib\driverlib /Ilm3slib /Icmsis /I.">
+      <source file="..\..\freeRTOS7_0_2\include\projdefs.h" lastModified="13ed27fa089">
       </source>
       <source file="..\..\lm3slib\driverlib\timer.h" lastModified="13ef5ac49a6">
       </source>
-      <source file="..\..\syscalls\syscalls.c" lastModified="13ef5ac2b6b">
+      <source file="..\..\utiles\consolaLCD\console.c" lastModified="13ed27f167b">
+         <include file="..\..\utiles\consolaLCD\console.h"/>
+         <include file="..\..\utiles\drivers\rit128x96x4.h"/>
       </source>
-      <source file="..\..\startup\startup_lm3s.c" lastModified="13ef5ac298d">
-      </source>
-      <source file="..\..\lm3slib\inc\hw_timer.h" lastModified="13ef5ac49b9">
-      </source>
-      <source file="..\..\lm3slib\inc\hw_pwm.h" lastModified="13ef5ac5871">
-      </source>
-      <source file="..\..\lm3slib\inc\hw_ssi.h" lastModified="13ef5ac4ef1">
+      <source file="..\..\sources\simulink_code\stellaris_1_private.h" lastModified="13ed28520ba">
+         <include file="..\..\sources\simulink_code\rtwtypes.h"/>
       </source>
       <source file="..\..\lm3slib\driverlib\timer.c" lastModified="13ef5ac4996">
          <include file="..\..\lm3slib\inc\hw_ints.h"/>
@@ -56,57 +21,46 @@
          <include file="..\..\lm3slib\driverlib\interrupt.h"/>
          <include file="..\..\lm3slib\driverlib\timer.h"/>
       </source>
-      <source file="..\..\lm3slib\driverlib\pwm.h" lastModified="13ef5ac5844">
-      </source>
-      <source file="..\..\lm3slib\inc\hw_ints.h" lastModified="13ef5ac3008">
-      </source>
-      <source file="..\..\lm3slib\driverlib\ssi.h" lastModified="13ef5ac4ed0">
-         <include file="..\..\lm3slib\driverlib\sysctl.h"/>
-      </source>
-      <source file="..\..\lm3slib\driverlib\systick.h" lastModified="13ef5ac3b81">
-      </source>
-      <source file="..\..\lm3slib\driverlib\interrupt.h" lastModified="13ef5ac3c42">
-      </source>
-      <source file="..\..\lm3slib\driverlib\pwm.c" lastModified="13ef5ac5813">
-         <include file="..\..\lm3slib\inc\hw_ints.h"/>
-         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
-         <include file="..\..\lm3slib\inc\hw_pwm.h"/>
-         <include file="..\..\lm3slib\inc\hw_sysctl.h"/>
-         <include file="..\..\lm3slib\inc\hw_types.h"/>
-         <include file="..\..\lm3slib\driverlib\debug.h"/>
-         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
-         <include file="..\..\lm3slib\driverlib\pwm.h"/>
-      </source>
-      <source file="..\..\lm3slib\driverlib\sysctl.h" lastModified="13ef5ac423e">
+      <source file="..\..\syscalls\syscalls.c" lastModified="13ef5ac2b6b">
       </source>
       <source file="..\..\lm3slib\inc\hw_nvic.h" lastModified="13ef5ac301e">
       </source>
-      <source file="..\..\lm3slib\driverlib\ssi.c" lastModified="13ef5ac4e5e">
-         <include file="..\..\lm3slib\inc\hw_ints.h"/>
-         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
-         <include file="..\..\lm3slib\inc\hw_ssi.h"/>
+      <source file="..\..\headers\display_generico.h" lastModified="13ed22d826d">
          <include file="..\..\lm3slib\inc\hw_types.h"/>
-         <include file="..\..\lm3slib\driverlib\debug.h"/>
-         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
-         <include file="..\..\lm3slib\driverlib\ssi.h"/>
       </source>
-      <source file="..\..\lm3slib\inc\hw_gpio.h" lastModified="13ef5ac419a">
+      <source file="..\..\cmsis\core_cm3.h" lastModified="13ef5ac27d0">
       </source>
-      <source file="..\..\lm3slib\driverlib\systick.c" lastModified="13ef5ac3b53">
-         <include file="..\..\lm3slib\inc\hw_ints.h"/>
-         <include file="..\..\lm3slib\inc\hw_nvic.h"/>
-         <include file="..\..\lm3slib\inc\hw_types.h"/>
-         <include file="..\..\lm3slib\driverlib\debug.h"/>
-         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
-         <include file="..\..\lm3slib\driverlib\systick.h"/>
+      <source file="..\..\lm3slib\driverlib\debug.h" lastModified="13ef5ac2fdb">
       </source>
-      <source file="..\..\lm3slib\driverlib\interrupt.c" lastModified="13ef5ac3c3d">
-         <include file="..\..\lm3slib\inc\hw_ints.h"/>
-         <include file="..\..\lm3slib\inc\hw_nvic.h"/>
-         <include file="..\..\lm3slib\inc\hw_types.h"/>
-         <include file="..\..\lm3slib\driverlib\cpu.h"/>
-         <include file="..\..\lm3slib\driverlib\debug.h"/>
-         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+      <source file="..\..\cmsis\core_cm3.c" lastModified="13ef5ac23d1">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_memmap.h" lastModified="13ef5ac300e">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\StackMacros.h" lastModified="13ed27fa0d7">
+      </source>
+      <source file="..\..\sources\display_RIT.c" lastModified="13ed22d8697">
+         <include file="..\..\headers\display_generico.h"/>
+         <include file="..\..\utiles\drivers\rit128x96x4.h"/>
+      </source>
+      <source file="..\..\cmsisboot\system_lm3s.h" lastModified="13ef5b26eb9">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_ssi.h" lastModified="13ef5ac4ef1">
+      </source>
+      <source file="..\..\headers\display.h" lastModified="13ed22d826c">
+         <include file="..\..\headers\framebuffer.h"/>
+      </source>
+      <source file="..\..\cmsisboot\system_lm3s.c" lastModified="13ef5b2729d">
+         <include file="..\..\cmsisboot\lm3s_cmsis.h"/>
+         <include file="..\..\cmsisboot\lm3s_config.h"/>
+      </source>
+      <source file="..\..\headers\FreeRTOSConfig.h" lastModified="13ed22d826a">
+      </source>
+      <source file="..\..\sources\pwm_generico.c" lastModified="13ed230dfd3">
+         <include file="..\..\headers\pwm_generico.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\sysctl.h" lastModified="13ef5ac423e">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\mpu_wrappers.h" lastModified="13ed27fa07a">
       </source>
       <source file="..\..\lm3slib\driverlib\sysctl.c" lastModified="13ef5ac4231">
          <include file="..\..\lm3slib\inc\hw_ints.h"/>
@@ -118,11 +72,336 @@
          <include file="..\..\lm3slib\driverlib\interrupt.h"/>
          <include file="..\..\lm3slib\driverlib\sysctl.h"/>
       </source>
-      <source file="..\..\lm3slib\inc\hw_memmap.h" lastModified="13ef5ac300e">
+      <source file="..\..\lm3slib\driverlib\systick.h" lastModified="13ef5ac3b81">
+      </source>
+      <source file="..\..\headers\framebuffer.h" lastModified="13ed22d826e">
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\systick.c" lastModified="13ef5ac3b53">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_nvic.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+         <include file="..\..\lm3slib\driverlib\systick.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\ssi.h" lastModified="13ef5ac4ed0">
+         <include file="..\..\lm3slib\driverlib\sysctl.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\ssi.c" lastModified="13ef5ac4e5e">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_ssi.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+         <include file="..\..\lm3slib\driverlib\ssi.h"/>
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\queue.h" lastModified="13ed27fa099">
+         <include file="..\..\freeRTOS7_0_2\include\mpu_wrappers.h"/>
       </source>
       <source file="..\..\lm3slib\inc\hw_adc.h" lastModified="13ef5ac6849">
       </source>
+      <source file="..\..\freeRTOS7_0_2\MemMang\heap_1.c" lastModified="13ed283096a">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+      </source>
+      <source file="..\..\freeRTOS7_0_2\timers.c" lastModified="13ed27fa1b2">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\queue.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\timers.h"/>
+      </source>
+      <source file="..\..\headers\pwm_generico.h" lastModified="13ed230dfaf">
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\driverlib\sysctl.h"/>
+         <include file="..\..\lm3slib\driverlib\pwm.h"/>
+         <include file="..\..\lm3slib\inc\hw_pwm.h"/>
+         <include file="..\..\lm3slib\driverlib\gpio.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\interrupt.h" lastModified="13ef5ac3c42">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\croutine.h" lastModified="13ed27fa03b">
+         <include file="..\..\freeRTOS7_0_2\include\list.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\interrupt.c" lastModified="13ef5ac3c3d">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_nvic.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\cpu.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\adc.h" lastModified="13ef5ac681d">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_ints.h" lastModified="13ef5ac3008">
+      </source>
+      <source file="..\..\sources\framebuffer.c" lastModified="13ed22d8a80">
+         <include file="..\..\headers\framebuffer.h"/>
+         <include file="..\..\utiles\drivers\rit128x96x4.h"/>
+         <include file="..\..\headers\display_generico.h"/>
+      </source>
       <source file="..\..\lm3slib\inc\hw_types.h" lastModified="13ef5ac3035">
+      </source>
+      <source file="..\..\lm3slib\driverlib\adc.c" lastModified="13ef5ac67f6">
+         <include file="..\..\lm3slib\inc\hw_adc.h"/>
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\adc.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+      </source>
+      <source file="..\..\cmsisboot\lm3s_cmsis.h" lastModified="13ef5b26e86">
+         <include file="..\..\cmsis\core_cm3.h"/>
+         <include file="..\..\cmsisboot\system_lm3s.h"/>
+      </source>
+      <source file="..\..\lm3slib\inc\hw_timer.h" lastModified="13ef5ac49b9">
+      </source>
+      <source file="..\..\cmsisboot\lm3s_config.h" lastModified="13ef5b26e9d">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\croutine.c" lastModified="13ed27fa02c">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\croutine.h"/>
+      </source>
+      <source file="..\..\sources\Task_Comunicaciones.c" lastModified="13ed22d8693">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\utiles\consolaLCD\console.h"/>
+      </source>
+      <source file="..\..\lm3slib\inc\hw_gpio.h" lastModified="13ef5ac419a">
+      </source>
+      <source file="..\..\cmsisboot\startup\startup_lm3s.c" lastModified="13ef5b43859">
+      </source>
+      <source file="..\..\utiles\drivers\rit128x96x4.h" lastModified="13ed27f0f08">
+      </source>
+      <source file="..\..\sources\display.c" lastModified="13ed22d82ad">
+         <include file="..\..\headers\display.h"/>
+      </source>
+      <source file="..\..\sources\simulink_code\rtwtypes.h" lastModified="13ed2852492">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_pwm.h" lastModified="13ef5ac5871">
+      </source>
+      <source file="..\..\utiles\drivers\rit128x96x4.c" lastModified="13ed27f0eda">
+         <include file="..\..\lm3slib\inc\hw_ssi.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_sysctl.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\gpio.h"/>
+         <include file="..\..\lm3slib\driverlib\ssi.h"/>
+         <include file="..\..\lm3slib\driverlib\sysctl.h"/>
+         <include file="..\..\utiles\drivers\rit128x96x4.h"/>
+      </source>
+      <source file="..\..\freeRTOS7_0_2\queue.c" lastModified="13ed27fa934">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\croutine.h"/>
+      </source>
+      <source file="..\..\sources\simulink_code\stellaris_1.h" lastModified="13ed28524a2">
+         <include file="..\..\sources\simulink_code\rtwtypes.h"/>
+         <include file="..\..\sources\simulink_code\stellaris_1_types.h"/>
+      </source>
+      <source file="..\..\freeRTOS7_0_2\tasks.c" lastModified="13ed27fad5a">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\timers.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\StackMacros.h"/>
+      </source>
+      <source file="..\..\lm3slib\inc\hw_sysctl.h" lastModified="13ef5ac424e">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\list.c" lastModified="13ed27fa4fe">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\list.h"/>
+      </source>
+      <source file="..\..\sources\simulink_code\stellaris_1.c" lastModified="13eeb6f0132">
+         <include file="..\..\sources\simulink_code\stellaris_1.h"/>
+         <include file="..\..\sources\simulink_code\stellaris_1_private.h"/>
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\FreeRTOS.h" lastModified="13ed2cb9d76">
+         <include file="..\..\freeRTOS7_0_2\include\projdefs.h"/>
+         <include file="..\..\headers\FreeRTOSConfig.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\portable.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\pwm.h" lastModified="13ef5ac5844">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\portable.h" lastModified="13ed2806b9a">
+         <include file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h"/>
+         <include file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h"/>
+         <include file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h"/>
+         <include file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h"/>
+         <include file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h"/>
+         <include file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\mpu_wrappers.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\cpu.h" lastModified="13ef5ac2ea8">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\portmacro.h" lastModified="13ed27fa154">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\list.h" lastModified="13ed27fa05b">
+      </source>
+      <source file="..\..\lm3slib\driverlib\pwm.c" lastModified="13ef5ac5813">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_pwm.h"/>
+         <include file="..\..\lm3slib\inc\hw_sysctl.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+         <include file="..\..\lm3slib\driverlib\pwm.h"/>
+      </source>
+      <source file="..\..\freeRTOS7_0_2\portableGCC_ARM_CM3\port.c" lastModified="13ed27fa135">
+         <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13ef5ac2e83">
+         <include file="..\..\lm3slib\driverlib\cpu.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\gpio.h" lastModified="13ef5ac4195">
+      </source>
+      <source file="..\..\sources\simulink_code\stellaris_1_types.h" lastModified="13ed28520ba">
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\task.h" lastModified="13ed27fa0e7">
+         <include file="..\..\freeRTOS7_0_2\include\portable.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\list.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\gpio.c" lastModified="13ef5ac4185">
+         <include file="..\..\lm3slib\inc\hw_gpio.h"/>
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_sysctl.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\gpio.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+      </source>
+      <source file="..\..\freeRTOS7_0_2\include\timers.h" lastModified="13ed27fa106">
+         <include file="..\..\freeRTOS7_0_2\include\portable.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\list.h"/>
+         <include file="..\..\freeRTOS7_0_2\include\task.h"/>
+      </source>
+      <source file="..\..\utiles\consolaLCD\console.h" lastModified="13ed27f0eba">
+      </source>
+   </includePath>
+   <includePath signature="/Ilm3slib\inc /Ilm3slib\driverlib /Ilm3slib /Icmsis /I.">
+      <source file="..\..\lm3slib\driverlib\timer.h" lastModified="13ef5ac49a6">
+      </source>
+      <source file="..\..\lm3slib\driverlib\timer.c" lastModified="13ef5ac4996">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_timer.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+         <include file="..\..\lm3slib\driverlib\timer.h"/>
+      </source>
+      <source file="..\..\lm3slib\inc\hw_nvic.h" lastModified="13ef5ac301e">
+      </source>
+      <source file="..\..\lm3slib\driverlib\debug.h" lastModified="13ef5ac2fdb">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_memmap.h" lastModified="13ef5ac300e">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_ssi.h" lastModified="13ef5ac4ef1">
+      </source>
+      <source file="..\..\lm3slib\driverlib\sysctl.h" lastModified="13ef5ac423e">
+      </source>
+      <source file="..\..\lm3slib\driverlib\sysctl.c" lastModified="13ef5ac4231">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_nvic.h"/>
+         <include file="..\..\lm3slib\inc\hw_sysctl.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\cpu.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+         <include file="..\..\lm3slib\driverlib\sysctl.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\systick.h" lastModified="13ef5ac3b81">
+      </source>
+      <source file="..\..\lm3slib\driverlib\systick.c" lastModified="13ef5ac3b53">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_nvic.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+         <include file="..\..\lm3slib\driverlib\systick.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\ssi.h" lastModified="13ef5ac4ed0">
+         <include file="..\..\lm3slib\driverlib\sysctl.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\ssi.c" lastModified="13ef5ac4e5e">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_ssi.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+         <include file="..\..\lm3slib\driverlib\ssi.h"/>
+      </source>
+      <source file="..\..\lm3slib\inc\hw_adc.h" lastModified="13ef5ac6849">
+      </source>
+      <source file="..\..\lm3slib\driverlib\interrupt.h" lastModified="13ef5ac3c42">
+      </source>
+      <source file="..\..\lm3slib\driverlib\interrupt.c" lastModified="13ef5ac3c3d">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_nvic.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\cpu.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\adc.h" lastModified="13ef5ac681d">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_ints.h" lastModified="13ef5ac3008">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_types.h" lastModified="13ef5ac3035">
+      </source>
+      <source file="..\..\lm3slib\driverlib\adc.c" lastModified="13ef5ac67f6">
+         <include file="..\..\lm3slib\inc\hw_adc.h"/>
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\adc.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+      </source>
+      <source file="..\..\lm3slib\inc\hw_timer.h" lastModified="13ef5ac49b9">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_gpio.h" lastModified="13ef5ac419a">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_pwm.h" lastModified="13ef5ac5871">
+      </source>
+      <source file="..\..\lm3slib\inc\hw_sysctl.h" lastModified="13ef5ac424e">
+      </source>
+      <source file="..\..\lm3slib\driverlib\pwm.h" lastModified="13ef5ac5844">
+      </source>
+      <source file="..\..\lm3slib\driverlib\cpu.h" lastModified="13ef5ac2ea8">
+      </source>
+      <source file="..\..\lm3slib\driverlib\pwm.c" lastModified="13ef5ac5813">
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_pwm.h"/>
+         <include file="..\..\lm3slib\inc\hw_sysctl.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
+         <include file="..\..\lm3slib\driverlib\pwm.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13ef5ac2e83">
+         <include file="..\..\lm3slib\driverlib\cpu.h"/>
+      </source>
+      <source file="..\..\lm3slib\driverlib\gpio.h" lastModified="13ef5ac4195">
+      </source>
+      <source file="..\..\lm3slib\driverlib\gpio.c" lastModified="13ef5ac4185">
+         <include file="..\..\lm3slib\inc\hw_gpio.h"/>
+         <include file="..\..\lm3slib\inc\hw_ints.h"/>
+         <include file="..\..\lm3slib\inc\hw_memmap.h"/>
+         <include file="..\..\lm3slib\inc\hw_sysctl.h"/>
+         <include file="..\..\lm3slib\inc\hw_types.h"/>
+         <include file="..\..\lm3slib\driverlib\debug.h"/>
+         <include file="..\..\lm3slib\driverlib\gpio.h"/>
+         <include file="..\..\lm3slib\driverlib\interrupt.h"/>
       </source>
    </includePath>
 </dependencies>

@@ -144,11 +144,11 @@ void rt_OneStep(void)
   /* Activar PWM*/
 
   //@todo Cambiar puertos PWM, estos estan ocupados por irune -- Ultrasonidos
-  PWM_GENERICO_salida_init(PWM2, periodo);
-  PWM_GENERICO_salida_init(PWM3, periodo);
+  PWM_GENERICO_salida_init(PWM4, periodo);
+  PWM_GENERICO_salida_init(PWM5, periodo);
 
-  PWM_GENERICO_cambiar_anchura_pulso(duty1, PWM2, periodo);
-  PWM_GENERICO_cambiar_anchura_pulso(duty2, PWM3, periodo);
+  PWM_GENERICO_cambiar_anchura_pulso(duty1, PWM4, periodo);
+  PWM_GENERICO_cambiar_anchura_pulso(duty2, PWM5, periodo);
 
   /* Disable interrupts here */
   /* Restore FPU context here (if necessary) */

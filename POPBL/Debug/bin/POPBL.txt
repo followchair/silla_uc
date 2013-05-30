@@ -987,13 +987,13 @@ Disassembly of section .text:
      c0c:	f240 0320 	movw	r3, #32
      c10:	f2c2 0300 	movt	r3, #8192	; 0x2000
      c14:	681b      	ldr	r3, [r3, #0]
-     c16:	f04f 0002 	mov.w	r0, #2
+     c16:	f04f 0004 	mov.w	r0, #4
      c1a:	4619      	mov	r1, r3
      c1c:	f002 f83a 	bl	2c94 <PWM_GENERICO_salida_init>
      c20:	f240 0320 	movw	r3, #32
      c24:	f2c2 0300 	movt	r3, #8192	; 0x2000
      c28:	681b      	ldr	r3, [r3, #0]
-     c2a:	f04f 0003 	mov.w	r0, #3
+     c2a:	f04f 0005 	mov.w	r0, #5
      c2e:	4619      	mov	r1, r3
      c30:	f002 f830 	bl	2c94 <PWM_GENERICO_salida_init>
      c34:	f240 53f4 	movw	r3, #1524	; 0x5f4
@@ -1003,7 +1003,7 @@ Disassembly of section .text:
      c42:	f2c2 0300 	movt	r3, #8192	; 0x2000
      c46:	681b      	ldr	r3, [r3, #0]
      c48:	4610      	mov	r0, r2
-     c4a:	f04f 0102 	mov.w	r1, #2
+     c4a:	f04f 0104 	mov.w	r1, #4
      c4e:	461a      	mov	r2, r3
      c50:	f002 f8f8 	bl	2e44 <PWM_GENERICO_cambiar_anchura_pulso>
      c54:	f240 53f8 	movw	r3, #1528	; 0x5f8
@@ -1013,7 +1013,7 @@ Disassembly of section .text:
      c62:	f2c2 0300 	movt	r3, #8192	; 0x2000
      c66:	681b      	ldr	r3, [r3, #0]
      c68:	4610      	mov	r0, r2
-     c6a:	f04f 0103 	mov.w	r1, #3
+     c6a:	f04f 0105 	mov.w	r1, #5
      c6e:	461a      	mov	r2, r3
      c70:	f002 f8e8 	bl	2e44 <PWM_GENERICO_cambiar_anchura_pulso>
      c74:	bd80      	pop	{r7, pc}
@@ -1083,10 +1083,10 @@ Disassembly of section .text:
 00000d44 <pwm_init>:
      d44:	b580      	push	{r7, lr}
      d46:	af00      	add	r7, sp, #0
-     d48:	f04f 0002 	mov.w	r0, #2
+     d48:	f04f 0004 	mov.w	r0, #4
      d4c:	f644 6120 	movw	r1, #20000	; 0x4e20
      d50:	f001 ffa0 	bl	2c94 <PWM_GENERICO_salida_init>
-     d54:	f04f 0003 	mov.w	r0, #3
+     d54:	f04f 0005 	mov.w	r0, #5
      d58:	f644 6120 	movw	r1, #20000	; 0x4e20
      d5c:	f001 ff9a 	bl	2c94 <PWM_GENERICO_salida_init>
      d60:	bd80      	pop	{r7, pc}

@@ -49,17 +49,17 @@
       <target file="timers.o" lastModified="13ef5b4769d">
          <source file="..\..\freeRTOS7_0_2\timers.c" lastModified="13ed27fa1b2"/>
       </target>
+      <target file="Task_Control.o" lastModified="13ef60edd49">
+         <source file="..\..\sources\Task_Control.c" lastModified="13ef60eb5ce"/>
+      </target>
       <target file="framebuffer.o" lastModified="13ef5b46f30">
          <source file="..\..\sources\framebuffer.c" lastModified="13ed22d82b0"/>
       </target>
-      <target file="Task_Control.o" lastModified="13ef5b4648c">
-         <source file="..\..\sources\Task_Control.c" lastModified="13eebf634f2"/>
+      <target file="Task_Comunicaciones.o" lastModified="13ef5b44b8c">
+         <source file="..\..\sources\Task_Comunicaciones.c" lastModified="13ed22d82ab"/>
       </target>
       <target file="syscalls.o" lastModified="13ef5b49a1f">
          <source file="..\..\syscalls\syscalls.c" lastModified="13ef5ac1bcb"/>
-      </target>
-      <target file="Task_Comunicaciones.o" lastModified="13ef5b44b8c">
-         <source file="..\..\sources\Task_Comunicaciones.c" lastModified="13ed22d82ab"/>
       </target>
       <target file="pwm_generico.o" lastModified="13ef5b4af79">
          <source file="..\..\sources\pwm_generico.c" lastModified="13ed230dfd3"/>
@@ -67,17 +67,17 @@
       <target file="cpu.o" lastModified="13ef5b4b7d4">
          <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13ef5ac2e83"/>
       </target>
-      <target file="adc.o" lastModified="13ef5b4a220">
-         <source file="..\..\lm3slib\driverlib\adc.c" lastModified="13ef5ac67f6"/>
-      </target>
       <target file="stellaris_1.o" lastModified="13ef5b45802">
          <source file="..\..\sources\simulink_code\stellaris_1.c" lastModified="13eeb6f0132"/>
       </target>
-      <target file="console.o" lastModified="13ef5b4bbe4">
-         <source file="..\..\utiles\consolaLCD\console.c" lastModified="13ed27f0eab"/>
+      <target file="adc.o" lastModified="13ef5b4a220">
+         <source file="..\..\lm3slib\driverlib\adc.c" lastModified="13ef5ac67f6"/>
       </target>
       <target file="rit128x96x4.o" lastModified="13ef5b48ea7">
          <source file="..\..\utiles\drivers\rit128x96x4.c" lastModified="13ed27f0eda"/>
+      </target>
+      <target file="console.o" lastModified="13ef5b4bbe4">
+         <source file="..\..\utiles\consolaLCD\console.c" lastModified="13ed27f0eab"/>
       </target>
       <target file="startup_lm3s.o" lastModified="13ef5b49167">
          <source file="..\..\cmsisboot\startup\startup_lm3s.c" lastModified="13ef5b43859"/>
@@ -85,8 +85,8 @@
       <target file="heap_1.o" lastModified="13ef5b4c2e8">
          <source file="..\..\freeRTOS7_0_2\MemMang\heap_1.c" lastModified="13ed2830582"/>
       </target>
-      <target file="main.o" lastModified="13ef5b469b4">
-         <source file="..\..\sources\main.c" lastModified="13ee66cf843"/>
+      <target file="main.o" lastModified="13ef60ee190">
+         <source file="..\..\sources\main.c" lastModified="13ef60eb615"/>
       </target>
       <target file="system_lm3s.o" lastModified="13ef5b44f67">
          <source file="..\..\cmsisboot\system_lm3s.c" lastModified="13ef5b26eb5"/>

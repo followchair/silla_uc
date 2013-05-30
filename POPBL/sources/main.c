@@ -36,8 +36,8 @@ int main( void )
 
 void pwm_init(void){
 
-	PWM_GENERICO_salida_init(PWM2, 20000);
-	PWM_GENERICO_salida_init(PWM3, 20000);
+	PWM_GENERICO_salida_init(PWM4, 20000);
+	PWM_GENERICO_salida_init(PWM5, 20000);
 }
 
 
