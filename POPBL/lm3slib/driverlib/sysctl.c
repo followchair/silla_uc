@@ -2,23 +2,26 @@
 //
 // sysctl.c - Driver for the system controller.
 //
-// Copyright (c) 2005-2011 Texas Instruments Incorporated.  All rights reserved.
+// Copyright (c) 2005-2009 Luminary Micro, Inc.  All rights reserved.
 // Software License Agreement
 // 
-// Texas Instruments (TI) is supplying this software for use solely and
-// exclusively on TI's microcontroller products. The software is owned by
-// TI and/or its suppliers, and is protected under applicable copyright
-// laws. You may not combine this software with "viral" open-source
-// software in order to form a larger program.
+// Luminary Micro, Inc. (LMI) is supplying this software for use solely and
+// exclusively on LMI's microcontroller products.
 // 
-// THIS SOFTWARE IS PROVIDED "AS IS" AND WITH ALL FAULTS.
-// NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT
-// NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. TI SHALL NOT, UNDER ANY
-// CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
-// DAMAGES, FOR ANY REASON WHATSOEVER.
+// The software is owned by LMI and/or its suppliers, and is protected under
+// applicable copyright laws.  All rights are reserved.  You may not combine
+// this software with "viral" open-source software in order to form a larger
+// program.  Any use in violation of the foregoing restrictions may subject
+// the user to criminal sanctions under applicable laws, as well as to civil
+// liability for the breach of the terms and conditions of this license.
 // 
-// This is part of revision 7243 of the Stellaris Peripheral Driver Library.
+// THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+// OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+// LMI SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR
+// CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+// 
+// This is part of revision 5228 of the Stellaris Peripheral Driver Library.
 //
 //*****************************************************************************
 
@@ -380,7 +383,7 @@ SysCtlPeripheralPresent(unsigned long ulPeripheral)
         //
         // USB is a special case since the DC bit is missing for USB0.
         //
-        if(HWREG(SYSCTL_DC6) & SYSCTL_DC6_USB0_M)
+        if(HWREG(SYSCTL_DC6) && SYSCTL_DC6_USB0_M)
         {
             return(true);
         }
@@ -408,7 +411,7 @@ SysCtlPeripheralPresent(unsigned long ulPeripheral)
 //!
 //! This function performs a software reset of the specified peripheral.  An
 //! individual peripheral reset signal is asserted for a brief period and then
-//! deasserted, returning the internal state of the peripheral to its reset
+//! deasserted, leaving the peripheral in a operating state but in its reset
 //! condition.
 //!
 //! The \e ulPeripheral parameter must be only one of the following values:
@@ -922,14 +925,14 @@ SysCtlIntDisable(unsigned long ulInts)
 //! longer assert.  This must be done in the interrupt handler to keep it from
 //! being called again immediately upon exit.
 //!
-//! \note Because there is a write buffer in the Cortex-M3 processor, it may
-//! take several clock cycles before the interrupt source is actually cleared.
+//! \note Since there is a write buffer in the Cortex-M3 processor, it may take
+//! several clock cycles before the interrupt source is actually cleared.
 //! Therefore, it is recommended that the interrupt source be cleared early in
 //! the interrupt handler (as opposed to the very last action) to avoid
 //! returning from the interrupt handler before the interrupt source is
 //! actually cleared.  Failure to do so may result in the interrupt handler
-//! being immediately reentered (because the interrupt controller still sees
-//! the interrupt source asserted).
+//! being immediately reentered (since NVIC still sees the interrupt source
+//! asserted).
 //!
 //! \return None.
 //
@@ -1283,121 +1286,6 @@ SysCtlDelay(unsigned long ulCount)
     bx      lr;
 }
 #endif
-//
-// For CCS implement this function in pure assembly.  This prevents the TI
-// compiler from doing funny things with the optimizer.
-//
-#if defined(ccs)
-    __asm("    .sect \".text:SysCtlDelay\"\n"
-          "    .clink\n"
-          "    .thumbfunc SysCtlDelay\n"
-          "    .thumb\n"
-          "    .global SysCtlDelay\n"
-          "SysCtlDelay:\n"
-          "    subs r0, #1\n"
-          "    bne.n SysCtlDelay\n"
-          "    bx lr\n");
-#endif
-
-//*****************************************************************************
-//
-//! Sets the configuration of the main oscillator (MOSC) control.
-//!
-//! \param ulConfig is the required configuration of the MOSC control.
-//!
-//! This function configures the control of the main oscillator.  The
-//! \e ulConfig is specified as follows:
-//!
-//! - \b SYSCTL_MOSC_VALIDATE enables the MOSC verification circuit that
-//!   detects a failure of the main oscillator (such as a loss of the clock).
-//!
-//! \note The availability of MOSC control varies based on the Stellaris part
-//! in use.  Please consult the datasheet for the part you are using to
-//! determine whether this support is available.
-//!
-//! \return None.
-//
-//*****************************************************************************
-void
-SysCtlMOSCConfigSet(unsigned long ulConfig)
-{
-    //
-    // Configure the MOSC control.
-    //
-    HWREG(SYSCTL_MOSCCTL) = ulConfig;
-}
-
-//*****************************************************************************
-//
-//! Calibrates the precision internal oscillator.
-//!
-//! \param ulType is the type of calibration to perform.
-//!
-//! This function performs a calibration of the PIOSC.  There are three types
-//! of calibration available; the desired calibration type as specified in
-//! \e ulType is one of:
-//!
-//! - \b SYSCTL_PIOSC_CAL_AUTO to perform automatic calibration using the
-//!   32 kHz clock from the hibernate module as a reference.  This is only
-//!   possible on parts that have a hibernate module and then only if it is
-//!   enabled and the hibernate module's RTC is also enabled.
-//!
-//! - \b SYSCTL_PIOSC_CAL_FACT to reset the PIOSC calibration to the factory
-//!   provided calibration.
-//!
-//! - \b SYSCTL_PIOSC_CAL_USER to set the PIOSC calibration to a user-supplied
-//!   value.  The value to be used is ORed into the lower 7-bits of this value,
-//!   with 0x40 being the ``nominal'' value (in other words, if everything were
-//!   perfect, this would provide exactly 16 MHz).  Values larger than 0x40
-//!   will slow down PIOSC, and values smaller than 0x40 will speed up PIOSC.
-//!
-//! \return None.
-//
-//*****************************************************************************
-unsigned long
-SysCtlPIOSCCalibrate(unsigned long ulType)
-{
-    //
-    // Perform the requested calibration.  If performing user calibration, the
-    // UTEN bit must be set with one write, then the UT field in a second
-    // write, and the UPDATE bit in a final write.  For other calibration
-    // types, a single write to set UPDATE or CAL is all that is required.
-    //
-    if(ulType & (SYSCTL_PIOSCCAL_UTEN | SYSCTL_PIOSCCAL_UPDATE))
-    {
-        HWREG(SYSCTL_PIOSCCAL) = ulType & SYSCTL_PIOSCCAL_UTEN;
-        HWREG(SYSCTL_PIOSCCAL) =
-            ulType & (SYSCTL_PIOSCCAL_UTEN | SYSCTL_PIOSCCAL_UT_M);
-    }
-    HWREG(SYSCTL_PIOSCCAL) = ulType;
-
-    //
-    // See if an automatic calibration was requested.
-    //
-    if(ulType & SYSCTL_PIOSCCAL_CAL)
-    {
-        //
-        // Wait for the automatic calibration to complete.
-        //
-        while((HWREG(SYSCTL_PIOSCSTAT) & SYSCTL_PIOSCSTAT_CR_M) == 0)
-        {
-        }
-
-        //
-        // If the automatic calibration failed, return an error.
-        //
-        if((HWREG(SYSCTL_PIOSCSTAT) & SYSCTL_PIOSCSTAT_CR_M) !=
-           SYSCTL_PIOSCSTAT_CRPASS)
-        {
-            return(0);
-        }
-    }
-
-    //
-    // The calibration was successful.
-    //
-    return(1);
-}
 
 //*****************************************************************************
 //
@@ -1597,15 +1485,15 @@ SysCtlClockSet(unsigned long ulConfig)
                          SYSCTL_RCC_IOSCDIS | SYSCTL_RCC_MOSCDIS);
     ulRCC2 &= ~(SYSCTL_RCC2_SYSDIV2_M);
     ulRCC2 |= ulConfig & SYSCTL_RCC2_SYSDIV2_M;
-    if(ulConfig & SYSCTL_RCC2_DIV400)
+    if(ulConfig & SYSCTL_RCC2_USEFRACT)
     {
         ulRCC |= SYSCTL_RCC_USESYSDIV;
         ulRCC2 &= ~(SYSCTL_RCC_USESYSDIV);
-        ulRCC2 |= ulConfig & (SYSCTL_RCC2_DIV400 | SYSCTL_RCC2_SYSDIV2LSB);
+        ulRCC2 |= ulConfig & (SYSCTL_RCC2_USEFRACT | SYSCTL_RCC2_FRACT);
     }
     else
     {
-        ulRCC2 &= ~(SYSCTL_RCC2_DIV400);
+        ulRCC2 &= ~(SYSCTL_RCC2_USEFRACT);
     }
 
     //
@@ -1873,7 +1761,7 @@ SysCtlClockGet(void)
         //
         if(ulRCC2 & SYSCTL_RCC2_USERCC2)
         {
-            if((ulRCC2 & SYSCTL_RCC2_DIV400) &&
+            if((ulRCC2 & SYSCTL_RCC2_USEFRACT) &&
                (((ulRCC2 & SYSCTL_RCC2_USERCC2) &&
                  !(ulRCC2 & SYSCTL_RCC2_BYPASS2)) ||
                 (!(ulRCC2 & SYSCTL_RCC2_USERCC2) &&
@@ -1881,7 +1769,7 @@ SysCtlClockGet(void)
 
             {
                 ulClk = ((ulClk * 2) / (((ulRCC2 & (SYSCTL_RCC2_SYSDIV2_M |
-                                                    SYSCTL_RCC2_SYSDIV2LSB)) >>
+                                                    SYSCTL_RCC2_FRACT)) >>
                                          (SYSCTL_RCC2_SYSDIV2_S - 1)) + 1));
             }
             else
@@ -1901,45 +1789,6 @@ SysCtlClockGet(void)
     // Return the computed clock rate.
     //
     return(ulClk);
-}
-
-//*****************************************************************************
-//
-//! Sets the clocking of the device while in deep-sleep mode.
-//!
-//! \param ulConfig is the required configuration of the device clocking while
-//! in deep-sleep mode.
-//!
-//! This function configures the clocking of the device while in deep-sleep
-//! mode.  The oscillator to be used and the system clock divider are
-//! configured with this function.
-//!
-//! The \e ulConfig parameter is the logical OR of the following values:
-//!
-//! The system clock divider is chosen with one of the following values:
-//! \b SYSCTL_DSLP_DIV_1, \b SYSCTL_DSLP_DIV_2, \b SYSCTL_DSLP_DIV_3, ...
-//! \b SYSCTL_DSLP_DIV_64.
-//!
-//! The oscillator source is chosen with one of the following values:
-//! \b SYSCTL_DSLP_OSC_MAIN, \b SYSCTL_DSLP_OSC_INT, \b SYSCTL_DSLP_OSC_INT30,
-//! or \b SYSCTL_DSLP_OSC_EXT32.  \b SYSCTL_OSC_EXT32 is only available on
-//! devices with the hibernate module, and then only when the hibernate module
-//! has been enabled.
-//!
-//! \note The availability of deep-sleep clocking configuration varies with the
-//! Stellaris part in use.  Please consult the datasheet for the part you are
-//! using to determine whether this support is available.
-//!
-//! \return None.
-//
-//*****************************************************************************
-void
-SysCtlDeepSleepClockSet(unsigned long ulConfig)
-{
-    //
-    // Set the deep-sleep clock configuration.
-    //
-    HWREG(SYSCTL_DSLPCLKCFG) = ulConfig;
 }
 
 //*****************************************************************************
@@ -2274,7 +2123,7 @@ SysCtlGPIOAHBEnable(unsigned long ulGPIOPeripheral)
     //
     // Enable this GPIO for AHB access.
     //
-    HWREG(SYSCTL_GPIOHBCTL) |= ulGPIOPeripheral & 0xFFFF;
+    HWREG(SYSCTL_GPIOHSCTL) |= ulGPIOPeripheral & 0xFFFF;
 }
 
 //*****************************************************************************
@@ -2314,7 +2163,7 @@ SysCtlGPIOAHBDisable(unsigned long ulGPIOPeripheral)
     //
     // Disable this GPIO for AHB access.
     //
-    HWREG(SYSCTL_GPIOHBCTL) &= ~(ulGPIOPeripheral & 0xFFFF);
+    HWREG(SYSCTL_GPIOHSCTL) &= ~(ulGPIOPeripheral & 0xFFFF);
 }
 
 //*****************************************************************************

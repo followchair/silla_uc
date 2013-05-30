@@ -22,19 +22,16 @@
 			<arg line="/C arm-none-eabi-size &quot;${project.name}.elf&quot;"/>
 		</exec>
 	</target>
-  
-  <taskdef resource="cpptasks.tasks"/>
+
+	<taskdef resource="cpptasks.tasks"/>
 	<target name="compile">
 		<mkdir dir="${project.bin}"/>
 		<mkdir dir="${project.obj}"/>
 		<cc debug="true" objdir="${project.obj}" outfile="${project.bin}/${project.name}.elf" outtype="executable" subsystem="console">
 			<!-- compile all the c source file in the project -->
-			
-      <fileset dir=".">
-        <include name="**/*.c"/>
-        <include name="**/*.s"/>
-      </fileset>
-      <project outfile="${project.name}.elf" overwrite="true" type="xcode"/>
+			<fileset dir="." includes="**/*.c"/>
+			<fileset dir="." includes="**/*.s"/>
+			<project outfile="${project.name}.elf" overwrite="true" type="xcode"/>
 			
 			<!-- defines -->
 			<defineset>
@@ -42,18 +39,20 @@
         <define name="LM3S8962"/>
 </defineset>
 			
-      <!-- include compile path --><includepath path="D:\POPBL\programa_uc_Aitor\POPBL\utiles\drivers"/>
-      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\utiles\consolaLCD"/>
-      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\utiles"/>
-      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\freeRTOS7_0_2\portableGCC_ARM_CM3"/>
-      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\freeRTOS7_0_2\include"/>
-      <includepath path="D:\POPBL\programa_uc_Aitor\POPBL\freeRTOS7_0_2"/>
+      <!-- include compile path -->
+      <includepath path="cmsisboot"/>
+      <includepath path="utiles"/>
+      <includepath path="utiles/drivers"/>
+      <includepath path="utiles/consolaLCD"/>
       <includepath path="headers"/>
+      <includepath path="freeRTOS7_0_2/portableGCC_ARM_CM3"/>
+      <includepath path="freeRTOS7_0_2/include"/>
+      <includepath path="freeRTOS7_0_2/MemMang"/>
+      <includepath path="freeRTOS7_0_2"/>
+      <includepath path="lm3slib/inc"/>
       <includepath path="lm3slib/driverlib"/>
       <includepath path="lm3slib"/>
-      <includepath path="lm3slib/inc"/>
       <includepath path="cmsis"/>
-      <includepath path="cmsisboot"/>
       <includepath path="."/>
 							
 			<!-- arm-none-eabi-gcc compiler arguments -->

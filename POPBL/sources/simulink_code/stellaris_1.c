@@ -14,13 +14,28 @@
  * Validation result: Not run
  */
 
+/**
+ * @file    stellaris_1.c
+ * @brief   Codigo necesario para realizar el control proporcional de la posicion del robot
+ * @author  Ane Alberdi
+ * @author  Irune Agirre
+ * @author  Aitor Arrieta
+ * @date    2013-05-23
+ * @todo 	Calibrar variables de control (Kpx y Kpy)
+ */
+
+/*---------------------------------------------------------------*/
+/*-------------------Librerias necesarias -----------------------*/
+/*---------------------------------------------------------------*/
 #include "stellaris_1.h"
 #include "stellaris_1_private.h"
 
-//VARIABLES GLOBALES
+/*---------------------------------------------------------------*/
+/*------------------- Variables Globales -----------------------*/
+/*---------------------------------------------------------------*/
 
-real_T Kpx = 1;
-real_T Kpy = 15;
+real_T Kpx = 3;
+real_T Kpy = 5;
 
 /* External inputs (root inport signals with auto storage) */
 ExternalInputs_stellaris_1 stellaris_1_U;
@@ -32,14 +47,25 @@ ExternalOutputs_stellaris_1 stellaris_1_Y;
 RT_MODEL_stellaris_1 stellaris_1_M_;
 RT_MODEL_stellaris_1 *const stellaris_1_M = &stellaris_1_M_;
 
+
+
+/**
+ * @brief   Control proporcional del robot
+ * @par		Logica
+ *			- Selecciona la informacion util de los sensores
+ *			- Control proporcional eje X
+ *			- Control proporcional eje Y
+ * @param
+ * @return  void
+ */
 /* Model step function */
 void stellaris_1_step(void)
 {
   boolean_T rtb_Mode;
   real_T rtb_SensorTrasero;
   real_T rtb_SensorDelantero;
-  boolean_T rtb_LogicalOperator;
   real_T rtb_DistanciaAsistente;
+  real_T rtb_Switch3;
   real_T rtb_Mode_0;
 
   /* RelationalOperator: '<S3>/Relational Operator' incorporates:
@@ -65,13 +91,6 @@ void stellaris_1_step(void)
 
   /* End of Switch: '<S3>/Switch1' */
 
-  /* Logic: '<S1>/Logical Operator' incorporates:
-   *  Inport: '<Root>/STOP'
-   *  RelationalOperator: '<S1>/Relational Operator'
-   */
-  rtb_LogicalOperator = ((rtb_SensorDelantero == rtb_SensorTrasero) ||
-    (stellaris_1_U.STOP));
-
   /* Switch: '<S3>/Switch' incorporates:
    *  Inport: '<Root>/Sens1'
    *  Inport: '<Root>/Sens4'
@@ -82,28 +101,18 @@ void stellaris_1_step(void)
     rtb_Mode_0 = stellaris_1_U.Sens4;
   }
 
-  /* Sum: '<S2>/DistanciaAsistente' incorporates:
-   *  Constant: '<S2>/ComparacionValorMed'
-   */
-  rtb_DistanciaAsistente = rtb_Mode_0 - 1.0;
+  /* End of Switch: '<S3>/Switch' */
 
   /* Switch: '<S2>/Switch3' incorporates:
    *  Constant: '<S2>/ComparacionValorMed'
+   *  Gain: '<S2>/Kpx'
    *  Gain: '<S2>/Kpxneg'
    *  Sum: '<S2>/DistanciaAsistente'
    */
-  if (!rtb_Mode) {
-    /* Switch: '<S3>/Switch' incorporates:
-     *  Inport: '<Root>/Sens1'
-     *  Inport: '<Root>/Sens4'
-     */
-    if (rtb_Mode) {
-      rtb_Mode_0 = stellaris_1_U.Sens1;
-    } else {
-      rtb_Mode_0 = stellaris_1_U.Sens4;
-    }
-
-    rtb_DistanciaAsistente = -(rtb_Mode_0 - 1.0);
+  if (rtb_Mode) {
+    rtb_Switch3 = (rtb_Mode_0 - 1.0) * Kpx;
+  } else {
+    rtb_Switch3 = (rtb_Mode_0 - 1.0) * (-Kpx);
   }
 
   /* End of Switch: '<S2>/Switch3' */
@@ -111,12 +120,15 @@ void stellaris_1_step(void)
   /* Gain: '<S2>/Kpy' incorporates:
    *  Sum: '<S2>/Add'
    */
-  rtb_SensorDelantero = (rtb_SensorDelantero - rtb_SensorTrasero) * Kpy;
+  rtb_DistanciaAsistente = (rtb_SensorDelantero - rtb_SensorTrasero) * Kpy;
 
   /* Switch: '<S2>/Switch2' incorporates:
+   *  Inport: '<Root>/STOP'
+   *  Logic: '<S1>/Logical Operator'
+   *  RelationalOperator: '<S1>/Relational Operator'
    *  Switch: '<S2>/Switch1'
    */
-  if (rtb_LogicalOperator) {
+  if ((rtb_SensorDelantero == rtb_SensorTrasero) || (stellaris_1_U.STOP)) {
     /* Outport: '<Root>/Ref_Motor1' incorporates:
      *  Constant: '<S2>/Constant3'
      */
@@ -128,7 +140,7 @@ void stellaris_1_step(void)
     stellaris_1_Y.Ref_Motor2 = 0.0;
   } else {
     /* Sum: '<S2>/Add1' */
-    rtb_Mode_0 = rtb_DistanciaAsistente + rtb_SensorDelantero;
+    rtb_Mode_0 = rtb_Switch3 + rtb_DistanciaAsistente;
 
     /* Saturate: '<S2>/Saturation' */
     if (rtb_Mode_0 >= 10.0) {
@@ -145,7 +157,7 @@ void stellaris_1_step(void)
     /* End of Saturate: '<S2>/Saturation' */
 
     /* Sum: '<S2>/Add2' */
-    rtb_Mode_0 = rtb_SensorDelantero - rtb_DistanciaAsistente;
+    rtb_Mode_0 = rtb_DistanciaAsistente - rtb_Switch3;
 
     /* Saturate: '<S2>/Saturation1' */
     if (rtb_Mode_0 >= 10.0) {
@@ -165,6 +177,14 @@ void stellaris_1_step(void)
   /* End of Switch: '<S2>/Switch2' */
 }
 
+
+
+
+/**
+ * @brief   Inicializaciones del control
+ * @param
+ * @return  void
+ */
 /* Model initialize function */
 void stellaris_1_initialize(void)
 {
@@ -182,6 +202,12 @@ void stellaris_1_initialize(void)
                 sizeof(ExternalOutputs_stellaris_1));
 }
 
+
+/**
+ * @brief   Codigo para terminar el control -> No necesario, pero tal vez en el futuro si
+ * @param
+ * @return  void
+ */
 /* Model terminate function */
 void stellaris_1_terminate(void)
 {

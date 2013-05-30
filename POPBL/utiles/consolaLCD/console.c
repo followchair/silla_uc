@@ -1,7 +1,7 @@
 #include "console.h"
 #include <stdio.h>
 #include <string.h>
-#include "drivers/rit128x96x4.h"
+#include "rit128x96x4.h"
 
 #define CHAR_WIDTH 6
 #define LINE_HEIGHT 8
