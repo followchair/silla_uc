@@ -31,11 +31,7 @@
 			<!-- compile all the c source file in the project -->
 			<fileset dir="." includes="**/*.c"/>
 			<fileset dir="." includes="**/*.s"/>
-<<<<<<< HEAD
-<project outfile="${project.name}.elf" overwrite="true" type="xcode"/>
-=======
 			<project outfile="${project.name}.elf" overwrite="true" type="xcode"/>
->>>>>>> feature_control
 			
 			<!-- defines -->
 			<defineset>
@@ -44,27 +40,18 @@
 </defineset>
 			
       <!-- include compile path -->
-<<<<<<< HEAD
-      <includepath path="utiles/drivers"/>
-      <includepath path="freeRTOS7_0_2/portableGCC_ARM_CM3"/>
-      <includepath path="freeRTOS7_0_2/include"/>
-      <includepath path="freeRTOS7_0_2/MemMang"/>
-      <includepath path="utiles"/>
-      <includepath path="headers"/>
-=======
-      <includepath path="cmsisboot"/>
-      <includepath path="utiles"/>
-      <includepath path="utiles/drivers"/>
-      <includepath path="utiles/consolaLCD"/>
       <includepath path="headers"/>
       <includepath path="freeRTOS7_0_2/portableGCC_ARM_CM3"/>
       <includepath path="freeRTOS7_0_2/include"/>
       <includepath path="freeRTOS7_0_2/MemMang"/>
       <includepath path="freeRTOS7_0_2"/>
-      <includepath path="lm3slib/inc"/>
->>>>>>> feature_control
+      <includepath path="utiles/drivers"/>
+      <includepath path="utiles/consolaLCD"/>
+      <includepath path="utiles"/>
       <includepath path="lm3slib/driverlib"/>
       <includepath path="lm3slib"/>
+      <includepath path="lm3slib/inc"/>
+      <includepath path="cmsisboot"/>
       <includepath path="cmsis"/>
       <includepath path="."/>
 							

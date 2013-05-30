@@ -35,7 +35,7 @@
  **********************************************************************/
 #define TRUE 1
 #define LIMITE_OBSTACULO	2900.0 //useg --> Equivalente a 50 cm
-#define LIMITE_ESCALON		 290.0 //useg --> Equivalente a  5 cm
+#define LIMITE_ESCALON		 406.0 //useg --> Equivalente a  7 cm
 /*********************************************************************
 ** 																	**
 ** GLOBAL VARIABLES 												**

@@ -33,7 +33,7 @@ unsigned long int periodo = 20000;
 float duty1 = 0;
 float duty2 = 0;
 extern tBoolean g_parada_seguridad;
-
+int cntControl = 0;
 /*---------------------------------------------------------------*/
 /*------------------Funciones privadas --------------------------*/
 /*---------------------------------------------------------------*/
@@ -51,8 +51,7 @@ void rt_OneStep(void);
  * @return  void
  */
 void vTask_Control( void *pvParameters ){
-	char str[32];
-	  int i,cnt=0;
+
 	  portTickType xLastWakeTime, period = (portTickType) pvParameters;
 
 	  xLastWakeTime=xTaskGetTickCount();
@@ -61,12 +60,10 @@ void vTask_Control( void *pvParameters ){
 	  {
 
 		rt_OneStep();
-	    for(i=0;i<16000;i++);
-	    cnt++;
 
-	    sprintf(str,"cnt control: %d",cnt);
-	    consolePrintStr(1,8,str);
-	    refreshConsoleLine(8);
+	    cntControl++;
+
+
 
 
 	    vTaskDelayUntil(&xLastWakeTime, period/portTICK_RATE_MS);
@@ -111,9 +108,9 @@ void rt_OneStep(void)
 //@todo asignar a cada variable su sensor (al juntar programa con el de ane)
 
 
-  stellaris_1_U.Sens1 = 0;
-  stellaris_1_U.Sens2 = 0;
-  stellaris_1_U.Sens3 = 0;
+  stellaris_1_U.Sens1 = 1;
+  stellaris_1_U.Sens2 = 3;
+  stellaris_1_U.Sens3 = 2.5;
   stellaris_1_U.Sens4 = 0;
   stellaris_1_U.Sens5 = 0;
   stellaris_1_U.Sens6 = 0;
@@ -137,8 +134,8 @@ void rt_OneStep(void)
 
   /*Calculo de los duty cycles -> uno tiene malda positiva y la otra negativa, ya que lo motores
   en el robot estan invertidos*/
-  duty1 = 0.001*ref_motor1 + 1.5/20;
-  duty2 = -0.001*ref_motor2 + 1.5/20;
+  duty1 = -0.001*ref_motor1 + 1.5/20;
+  duty2 = 0.001*ref_motor2 + 1.5/20;
 
   /* Activar PWM*/
 

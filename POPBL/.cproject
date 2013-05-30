@@ -16,18 +16,18 @@
 						<entry flags="" kind="includePath" name="C:\apps\CoIDE\gcc\Sourcery G++ Lite\arm-none-eabi\include"/>
 						<entry flags="" kind="includePath" name="."/>
 						<entry flags="" kind="includePath" name="cmsis"/>
+						<entry flags="" kind="includePath" name="cmsisboot"/>
+						<entry flags="" kind="includePath" name="lm3slib/inc"/>
 						<entry flags="" kind="includePath" name="lm3slib"/>
 						<entry flags="" kind="includePath" name="lm3slib/driverlib"/>
-						<entry flags="" kind="includePath" name="lm3slib/inc"/>
+						<entry flags="" kind="includePath" name="utiles"/>
+						<entry flags="" kind="includePath" name="utiles/consolaLCD"/>
+						<entry flags="" kind="includePath" name="utiles/drivers"/>
 						<entry flags="" kind="includePath" name="freeRTOS7_0_2"/>
 						<entry flags="" kind="includePath" name="freeRTOS7_0_2/MemMang"/>
 						<entry flags="" kind="includePath" name="freeRTOS7_0_2/include"/>
 						<entry flags="" kind="includePath" name="freeRTOS7_0_2/portableGCC_ARM_CM3"/>
 						<entry flags="" kind="includePath" name="headers"/>
-						<entry flags="" kind="includePath" name="utiles/consolaLCD"/>
-						<entry flags="" kind="includePath" name="utiles/drivers"/>
-						<entry flags="" kind="includePath" name="utiles"/>
-						<entry flags="" kind="includePath" name="cmsisboot"/>
 						<entry flags="" kind="macro" name="__GNUC__" value=""/>
 						<entry flags="" kind="macro" name="gcc" value=""/>
 						<entry flags="" kind="macro" name="LM3S8962" value=""/>
@@ -41,18 +41,18 @@
 				<pathentry include="C:/apps/CoIDE/gcc/Sourcery G++ Lite/arm-none-eabi/include" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/cmsis" kind="inc" path="" system="true"/>
+				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/cmsisboot" kind="inc" path="" system="true"/>
+				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/lm3slib/inc" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/lm3slib" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/lm3slib/driverlib" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/lm3slib/inc" kind="inc" path="" system="true"/>
+				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles" kind="inc" path="" system="true"/>
+				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles/consolaLCD" kind="inc" path="" system="true"/>
+				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles/drivers" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/freeRTOS7_0_2" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/freeRTOS7_0_2/MemMang" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/freeRTOS7_0_2/include" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/freeRTOS7_0_2/portableGCC_ARM_CM3" kind="inc" path="" system="true"/>
 				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/headers" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles/consolaLCD" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles/drivers" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/utiles" kind="inc" path="" system="true"/>
-				<pathentry include="D:/POPBL/programa_uc_Aitor/POPBL/cmsisboot" kind="inc" path="" system="true"/>
 				<pathentry kind="mac" name="__GNUC__" path="" value=""/>
 				<pathentry kind="mac" name="gcc" path="" value=""/>
 				<pathentry kind="mac" name="LM3S8962" path="" value=""/>
