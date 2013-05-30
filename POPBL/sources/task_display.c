@@ -79,7 +79,7 @@ void vTask_Display( void *pvParameters ){
 		sprintf(str,"distan: %.2f cm", distancia_esc);
 		consolePrintStr( 1,6,str);
 
-		sprintf(str,"Emerg: %d cm", g_parada_seguridad);
+		sprintf(str,"Emerg: %d ", g_parada_seguridad);
 		consolePrintStr( 1,7,str);
 
 		sprintf(str,"cnt com.: %d",cntComm);
