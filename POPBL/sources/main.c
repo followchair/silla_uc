@@ -67,14 +67,14 @@ void vTask_Recibir_Infrarrojos( void *pvParameters );
 void vTask_Idle( void *pvParameters );
 void vTask_Control( void *pvParameters );
 void vTask_Seguridad( void *pvParameters );
+void vTask_Display( void *pvParameters );
 /*********************************************************************
 ** 																	**
 ** LOCAL FUNCTIONS 													**
-void pwm_init(void);
 ** 																	**
 **********************************************************************/
-//void vTask_Seguridad( void *pvParameters );
-void vTask_Display( void *pvParameters );
+void pwm_init(void);
+
 int main( void )
 {
 	/*
@@ -140,6 +140,12 @@ int main( void )
 	 */
   vTaskStartScheduler();
   for( ;; );
+}
+
+void pwm_init(void){
+
+	PWM_GENERICO_salida_init(PWM4, 20000);
+	PWM_GENERICO_salida_init(PWM5, 20000);
 }
 /*********************************************************************
 ** 																	**

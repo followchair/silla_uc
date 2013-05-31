@@ -34,6 +34,8 @@ float duty1 = 0;
 float duty2 = 0;
 extern tBoolean g_parada_seguridad;
 int cntControl = 0;
+
+extern float sens1, sens2, sens3, sens4, sens5, sens6;
 /*---------------------------------------------------------------*/
 /*------------------Funciones privadas --------------------------*/
 /*---------------------------------------------------------------*/
@@ -108,14 +110,16 @@ void rt_OneStep(void)
 //@todo asignar a cada variable su sensor (al juntar programa con el de ane)
 
 
-  stellaris_1_U.Sens1 = 1;
-  stellaris_1_U.Sens2 = 3;
-  stellaris_1_U.Sens3 = 2.5;
-  stellaris_1_U.Sens4 = 0;
-  stellaris_1_U.Sens5 = 0;
-  stellaris_1_U.Sens6 = 0;
-  stellaris_1_U.STOP = g_parada_seguridad;
-//  i = 1;
+  stellaris_1_U.Sens1 = sens4;
+  stellaris_1_U.Sens2 = sens3;
+  stellaris_1_U.Sens3 = sens6;
+  stellaris_1_U.Sens4 = sens5;
+  stellaris_1_U.Sens5 = sens2;
+  stellaris_1_U.Sens6 = sens1;
+  //stellaris_1_U.STOP = g_parada_seguridad;
+  stellaris_1_U.STOP = 0;
+
+  //  i = 1;
 
 
 

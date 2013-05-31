@@ -106,7 +106,8 @@ void Default_Reset_Handler(void);   /*!< Default reset handler                */
 static void Default_Handler(void);  /*!< Default exception handler            */
 extern void __attribute__((interrupt)) PortFInterruptHandler(void);
 extern void __attribute__((interrupt)) PortEInterruptHandler(void);
-extern void __attribute__((interrupt)) PortBInterruptHandler(void);
+void __attribute__((interrupt))ULTRASONIDOS_echoInt_PB4(void);
+void __attribute__((interrupt))ULTRASONIDOS_echoInt_PC4(void);
 extern void __attribute__((interrupt)) PortDInterruptHandler(void);
 //from FreeRTOS
 extern void xPortPendSVHandler( void ) __attribute__ (( naked ));
@@ -138,8 +139,8 @@ void (* const g_pfnVectors[])(void) =
   
   /*----------External Exceptions---------------------------------------------*/
   GPIOPortA_IRQHandler,                /*!<  0: GPIO Port A                   */
-  PortBInterruptHandler,                /*!<  1: GPIO Port B                   */
-  ULTRASONIDOS_echoInt_PC7,                /*!<  2: GPIO Port C                   */
+  ULTRASONIDOS_echoInt_PB4,                /*!<  1: GPIO Port B                   */
+  ULTRASONIDOS_echoInt_PC4,                /*!<  2: GPIO Port C                   */
   PortDInterruptHandler,                /*!<  3: GPIO Port D                   */
   PortEInterruptHandler,                /*!<  4: GPIO Port E                   */
   UART0_IRQHandler,                    /*!<  5: UART0 Rx and Tx               */

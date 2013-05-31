@@ -78,8 +78,8 @@ void ULTRASONIDOS_ini(void){
 	 * Inicializar Pin ECHO para los obstaculos: PD-4 -Input
 	 * Habilitar la interrupcion en ambos flancos
 	 */
-	PINES_inicializar(PORT_D, 4);
-	PINES_inicializar_int_both_edges(PORT_D, 4);
+	PINES_inicializar(PORT_B, 4);
+	PINES_inicializar_int_both_edges(PORT_B, 4);
 
 	/*
 	 * Inicializar Pin ECHO para los escalones: PD-5 -Input //PRUEBA PC7
@@ -97,13 +97,13 @@ void ULTRASONIDOS_ini(void){
  * Se mira qué pin ha provocado la interrupción y estado en el que se encuentra ese pin
  * para saber si ha habido un flanco positivo o un flanco negativo.
 */
-void __attribute__((interrupt))ULTRASONIDOS_echoInt_PD4(void) {
+void __attribute__((interrupt))ULTRASONIDOS_echoInt_PB4(void) {
 	unsigned char uc_pin;
 
 	/*
 	 * Guardamos el valor de la interrupción
 	 */
-	long temp = GPIOPinIntStatus(GPIO_PORTD_BASE, TRUE);
+	long temp = GPIOPinIntStatus(GPIO_PORTB_BASE, TRUE);
 
 //		if ((temp & GPIO_PIN_4)&&(temp & GPIO_PIN_5)){
 //			unsigned long estado_pin4;
@@ -127,7 +127,7 @@ void __attribute__((interrupt))ULTRASONIDOS_echoInt_PD4(void) {
 		if (temp & GPIO_PIN_4) {
 			unsigned long estado_pin;
 			uc_pin = GPIO_PIN_4;
-			estado_pin = GPIOPinRead(GPIO_PORTD_BASE, uc_pin);
+			estado_pin = GPIOPinRead(GPIO_PORTB_BASE, uc_pin);
 			estado_pin = estado_pin & 0x1f;
 			/*
 			 * Si el flanco ha sido positivo
@@ -173,7 +173,7 @@ void __attribute__((interrupt))ULTRASONIDOS_echoInt_PD4(void) {
 		/*
 		 * Limpiamos la interrupción
 		 */
-		GPIOPinIntClear(GPIO_PORTD_BASE, uc_pin);
+		GPIOPinIntClear(GPIO_PORTB_BASE, uc_pin);
 }
 
 /**
@@ -184,7 +184,7 @@ void __attribute__((interrupt))ULTRASONIDOS_echoInt_PD4(void) {
  * Se mira qué pin ha provocado la interrupción y estado en el que se encuentra ese pin
  * para saber si ha habido un flanco positivo o un flanco negativo.
 */
-void __attribute__((interrupt))ULTRASONIDOS_echoInt_PC7(void) {
+void __attribute__((interrupt))ULTRASONIDOS_echoInt_PC4(void) {
 	unsigned char uc_pin;
 
 	/*

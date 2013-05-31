@@ -97,7 +97,7 @@ void vTask_Seguridad( void *pvParameters ){
 		GPIOPinWrite(GPIO_PORTG_BASE, GPIO_PIN_0, 1); /*INH=1*/
 
 	    /*	Mirar si hay alguna emergencia para que la silla se pare	*/
-	    if ((obstaculo == 1)||(escalon == 1)||(bateria == 1))	g_parada_seguridad = 1;
+	    if ((obstaculo == 1)||(escalon == 1)/*||(bateria == 1)*/)	g_parada_seguridad = 1;
 	    else 	g_parada_seguridad = 0;
 
 	    vTaskDelayUntil(&xLastWakeTime, period/portTICK_RATE_MS);
