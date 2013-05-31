@@ -265,6 +265,73 @@ void __attribute__((interrupt)) PortBInterruptHandler(void) {
 	GPIOPinIntClear(ul_port, uc_pin);
 }
 
+
+void __attribute__((interrupt)) PortDInterruptHandler(void) {
+	unsigned long ul_port;
+	unsigned char uc_pin;
+	/*
+	 * Guardamos el valor de la interrupción
+	 */
+	long temp = GPIOPinIntStatus(GPIO_PORTD_BASE, TRUE);
+
+	/*
+	 * Miramos si la interrupción ha sido provocada por el pin 0
+	 */
+	if (temp & GPIO_PIN_6) {
+		unsigned long estado_pin;
+		ul_port = GPIO_PORTD_BASE;
+		uc_pin = GPIO_PIN_6;
+		estado_pin = GPIOPinRead(ul_port, uc_pin);
+		//estado_pin = estado_pin & 0x1F;
+		/*
+		 * Si el flanco ha sido positivo
+		 */
+		if (estado_pin == 64) {
+			g_arriba = 1;
+			if ((xTaskIsTaskSuspended(xHandle_Task_Recibir_Infrarrojos))
+					== true) {
+				vTaskResume(xHandle_Task_Recibir_Infrarrojos);
+			}
+		}
+		/*
+		 * Si el flanco ha sido negativo
+		 */
+		else {
+			g_abajo = 1;
+		}
+	}
+	/*
+	 * Miramos si la interrupción ha sido provocada por el pin 1
+	 */
+	if (temp & GPIO_PIN_7) {
+		unsigned long estado_pin;
+		ul_port = GPIO_PORTD_BASE;
+		uc_pin = GPIO_PIN_7;
+		estado_pin = GPIOPinRead(ul_port, uc_pin);
+		//estado_pin = estado_pin & 0x80;
+		/*
+		 * Si el flanco ha sido positivo
+		 */
+		if (estado_pin == 128) {
+			g_arriba = 1;
+			if ((xTaskIsTaskSuspended(xHandle_Task_Recibir_Infrarrojos))
+					== true) {
+				vTaskResume(xHandle_Task_Recibir_Infrarrojos);
+			}
+		}
+		/*
+		 * Si el flanco ha sido negativo
+		 */
+		else {
+			g_abajo = 1;
+		}
+
+	}
+	/*
+	 * Limpiamos la interrupción
+	 */
+	GPIOPinIntClear(ul_port, uc_pin);
+}
 /*********************************************************************
  ** 																	**
  ** EOF 																**

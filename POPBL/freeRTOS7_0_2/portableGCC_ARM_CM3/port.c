@@ -255,10 +255,11 @@ void xPortPendSVHandler( void )
 void xPortSysTickHandler( void )
 {
 unsigned long ulDummy;
-
-	extern int g_cycles;
+extern int g_cycles;
+extern int g_cycles_us;
 
 	g_cycles++;
+	g_cycles_us++;
 	/* If using preemption, also force a context switch. */
 	#if configUSE_PREEMPTION == 1
 		*(portNVIC_INT_CTRL) = portNVIC_PENDSVSET;

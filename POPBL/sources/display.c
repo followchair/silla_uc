@@ -51,7 +51,17 @@ void DISPLAY_inicializar() {
 	FRAME_BUFFER_insert_text("		", 1, 20); //id=2
 	FRAME_BUFFER_insert_text("		", 1, 30); //id=3
 	FRAME_BUFFER_insert_text("		", 1, 40); //id=4
-	FRAME_BUFFER_insert_text("				", 15, 60); //id=5
+
+
+	FRAME_BUFFER_insert_text("				", 1, 50); //id=5
+	FRAME_BUFFER_insert_text("				", 1, 60); //id=6
+	FRAME_BUFFER_insert_text("				", 1, 70); //id=7
+	FRAME_BUFFER_insert_text("	 			", 65, 50); //id=8
+	FRAME_BUFFER_insert_text("	 			", 65, 60); //id=9
+	FRAME_BUFFER_insert_text("	 			", 65, 70); //id=10
+
+	FRAME_BUFFER_insert_text("	 			", 1, 80); //id=11
+	FRAME_BUFFER_insert_text("	 			", 65, 80); //id=12*/
 	/*
 	 * Se vuelcan todos los elementos a la pantalla
 	 */
@@ -86,7 +96,7 @@ void DISPLAY_indicar_estado(int state) {
 		texto = "leyendo off 2						";
 		break;
 	case 5: /*Estado "preguntar"*/
-		texto = "									";
+		texto = "			    						";
 		break;
 	case 6: /*Estado "activado"*/
 		texto = "activado							";
@@ -108,10 +118,22 @@ void DISPLAY_indicar_estado(int state) {
 	 * Se escribe en el framebuffer
 	 */
 	FRAME_BUFFER_change_text(texto, 1);
-	FRAME_BUFFER_change_text("																				", 2);
-	FRAME_BUFFER_change_text("																		", 3);
-	FRAME_BUFFER_change_text("																		", 4);
-	/*
+	//FRAME_BUFFER_change_text("																				", 2);
+	//FRAME_BUFFER_change_text("																		", 3);
+	//FRAME_BUFFER_change_text("																		", 4);
+
+
+
+/*	FRAME_BUFFER_change_text("																				", 5);
+	FRAME_BUFFER_change_text("																		", 6);
+	FRAME_BUFFER_change_text("																		", 7);
+	FRAME_BUFFER_change_text("																				", 8);
+	FRAME_BUFFER_change_text("																		", 9);
+	FRAME_BUFFER_change_text("																		", 10);
+	FRAME_BUFFER_change_text("																				", 11);
+	FRAME_BUFFER_change_text("																		", 12);
+*/
+/*
 	 * Se vuelca en la pantalla
 	 */
 	FRAME_BUFFER_write_to_display();
@@ -127,14 +149,9 @@ void DISPLAY_peticion_seguimiento() {
 	/*
 	 * Se escriben la pregunta y las opciones en el framebuffer
 	 */
-	FRAME_BUFFER_change_text("													", 1);
 	FRAME_BUFFER_change_text("activar seguimiento?	", 2); //id=2
 	FRAME_BUFFER_change_text("izq: desactivar						", 3); //id=3
 	FRAME_BUFFER_change_text("dcha: activar							", 4); //id=4
-	/*
-	 * Se vuelca a la pantalla
-	 */
-	FRAME_BUFFER_write_to_display();
 
 }
 /*********************************************************************

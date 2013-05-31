@@ -40,19 +40,16 @@
 </defineset>
 			
       <!-- include compile path -->
-      <includepath path="headers"/>
-      <includepath path="freeRTOS7_0_2/portableGCC_ARM_CM3"/>
-      <includepath path="freeRTOS7_0_2/include"/>
-      <includepath path="freeRTOS7_0_2/MemMang"/>
-      <includepath path="freeRTOS7_0_2"/>
       <includepath path="utiles/drivers"/>
-      <includepath path="utiles/consolaLCD"/>
       <includepath path="utiles"/>
+      <includepath path="freeRTOS7_0_2/portableGCC_ARM_CM3"/>
+      <includepath path="headers"/>
+      <includepath path="freeRTOS7_0_2/include"/>
       <includepath path="lm3slib/driverlib"/>
       <includepath path="lm3slib"/>
       <includepath path="lm3slib/inc"/>
-      <includepath path="cmsisboot"/>
       <includepath path="cmsis"/>
+      <includepath path="cmsisboot"/>
       <includepath path="."/>
 							
 			<!-- arm-none-eabi-gcc compiler arguments -->

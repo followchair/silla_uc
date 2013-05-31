@@ -104,9 +104,10 @@ extern int main(void);           /*!< The entry point for the application.    */
 extern void SystemInit(void);    /*!< Setup the microcontroller system(CMSIS) */
 void Default_Reset_Handler(void);   /*!< Default reset handler                */
 static void Default_Handler(void);  /*!< Default exception handler            */
-void __attribute__((interrupt))ULTRASONIDOS_echoInt_PD4(void);
-void __attribute__((interrupt))ULTRASONIDOS_echoInt_PC7(void);
-
+extern void __attribute__((interrupt)) PortFInterruptHandler(void);
+extern void __attribute__((interrupt)) PortEInterruptHandler(void);
+extern void __attribute__((interrupt)) PortBInterruptHandler(void);
+extern void __attribute__((interrupt)) PortDInterruptHandler(void);
 //from FreeRTOS
 extern void xPortPendSVHandler( void ) __attribute__ (( naked ));
 extern void xPortSysTickHandler( void );
@@ -137,10 +138,10 @@ void (* const g_pfnVectors[])(void) =
   
   /*----------External Exceptions---------------------------------------------*/
   GPIOPortA_IRQHandler,                /*!<  0: GPIO Port A                   */
-  GPIOPortB_IRQHandler,                /*!<  1: GPIO Port B                   */
+  PortBInterruptHandler,                /*!<  1: GPIO Port B                   */
   ULTRASONIDOS_echoInt_PC7,                /*!<  2: GPIO Port C                   */
-  ULTRASONIDOS_echoInt_PD4,                /*!<  3: GPIO Port D                   */
-  GPIOPortE_IRQHandler,                /*!<  4: GPIO Port E                   */ 
+  PortDInterruptHandler,                /*!<  3: GPIO Port D                   */
+  PortEInterruptHandler,                /*!<  4: GPIO Port E                   */
   UART0_IRQHandler,                    /*!<  5: UART0 Rx and Tx               */
   UART1_IRQHandler,                    /*!<  6: UART1 Rx and Tx               */
   SSI0_IRQHandler,                     /*!<  7: SSI0 Rx and Tx                */
@@ -166,7 +167,7 @@ void (* const g_pfnVectors[])(void) =
   Comp2_IRQHandler,                    /*!< 27: Analog Comparator 2           */
   SysCtrl_IRQHandler,                  /*!< 28: System Control (PLL, OSC, BO) */ 
   FlashCtrl_IRQHandler,                /*!< 29: FLASH Control                 */
-  GPIOPortF_IRQHandler,                /*!< 30: GPIO Port F                   */
+  PortFInterruptHandler,                /*!< 30: GPIO Port F                   */
   GPIOPortG_IRQHandler,                /*!< 31: GPIO Port G                   */
   GPIOPortH_IRQHandler,                /*!< 32: GPIO Port H                   */
   UART2_IRQHandler,                    /*!< 33: UART2 Rx and Tx               */
