@@ -85,8 +85,8 @@ void ULTRASONIDOS_ini(void){
 	 * Inicializar Pin ECHO para los escalones: PD-5 -Input //PRUEBA PC7
 	 * Habilitar la interrupcion en ambos flancos
 	 */
-	PINES_inicializar(PORT_C, 7);
-	PINES_inicializar_int_both_edges(PORT_C, 7);
+	PINES_inicializar(PORT_C, 4);
+	PINES_inicializar_int_both_edges(PORT_C, 4);
 }
 
 /**
@@ -195,15 +195,15 @@ void __attribute__((interrupt))ULTRASONIDOS_echoInt_PC7(void) {
 		/*
 		 * Miramos si la interrupción ha sido provocada por el pin 0
 		 */
-		if (temp & GPIO_PIN_7) {
+		if (temp & GPIO_PIN_4) {
 			unsigned long estado_pin;
-			uc_pin = GPIO_PIN_7;
+			uc_pin = GPIO_PIN_4;
 			estado_pin = GPIOPinRead(GPIO_PORTC_BASE, uc_pin);
 			estado_pin = estado_pin & 0xff;
 			/*
 			 * Si el flanco ha sido positivo
 			 */
-			if (estado_pin == 0x80) {
+			if (estado_pin == 0x10) {
 				time_flanco_pos_esc = SYSTEM_TICK_coger_valor_ticks();
 				g_cycles = 0;
 				flancoPos_Esc = 1;

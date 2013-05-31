@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.5.1 -O0 -nostartfiles -Map=POPBL.map -mcpu=cortex-m3 -mthumb -LC:\app\POPBL\Programa_uc\POPBL --gc-sections -TC:\app\POPBL\Programa_uc\POPBL\link.ld -g">
-      <target file="POPBL.elf" lastModified="13ef69f1ac7">
+      <target file="POPBL.elf" lastModified="13efa8ed28b">
          <source file="..\obj\Task_Comunicaciones.o" lastModified="13ef69eec14"/>
          <source file="..\obj\pines.o" lastModified="13ef69eed41"/>
          <source file="..\obj\system_lm3s.o" lastModified="13ef69eee72"/>
@@ -36,7 +36,7 @@
          <source file="..\obj\console.o" lastModified="13ef69f13c2"/>
          <source file="..\obj\systick.o" lastModified="13ef69f14ff"/>
          <source file="..\obj\heap_1.o" lastModified="13ef69f1639"/>
-         <source file="..\obj\ultrasonidos.o" lastModified="13ef69f17c7"/>
+         <source file="..\obj\ultrasonidos.o" lastModified="13efa8ec86d"/>
       </target>
    </processor>
 </history>
