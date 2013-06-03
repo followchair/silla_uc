@@ -35,6 +35,7 @@
 ** EXPORTED FUNCTIONS 														**
 ** 																			**
 ******************************************************************************/
+float AD_ObtenerValorADC_Channel1(void);
 float AD_ObtenerValorADC_Channel2(void);
 float AD_ObtenerValorADC_Channel3();
 /*****************************************************************************

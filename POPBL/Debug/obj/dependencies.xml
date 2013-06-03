@@ -37,14 +37,14 @@
       </source>
       <source file="..\..\sources\Task_Idle.c" lastModified="13efaedc1cb">
       </source>
-      <source file="..\..\sources\Task_Seguridad.c" lastModified="13efb3adda8">
+      <source file="..\..\sources\Task_Seguridad.c" lastModified="13f0b07ec49">
          <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
          <include file="..\..\freeRTOS7_0_2\include\task.h"/>
          <include file="..\..\headers\task_seguridad.h"/>
          <include file="..\..\headers\ultrasonidos.h"/>
          <include file="..\..\headers\ad.h"/>
       </source>
-      <source file="..\..\sources\Task_Control.c" lastModified="13f0a2cf602">
+      <source file="..\..\sources\Task_Control.c" lastModified="13f0b0dbec0">
          <include file="..\..\freeRTOS7_0_2\include\FreeRTOS.h"/>
          <include file="..\..\freeRTOS7_0_2\include\task.h"/>
          <include file="..\..\utiles\consolaLCD\console.h"/>
@@ -241,7 +241,7 @@
       </source>
       <source file="..\..\lm3slib\inc\hw_types.h" lastModified="13ee5c8a125">
       </source>
-      <source file="..\..\headers\ad.h" lastModified="13efaedc1c1">
+      <source file="..\..\headers\ad.h" lastModified="13f0b070afe">
          <include file="..\..\lm3slib\inc\hw_types.h"/>
          <include file="..\..\lm3slib\inc\hw_memmap.h"/>
          <include file="..\..\lm3slib\driverlib\adc.h"/>
@@ -320,7 +320,7 @@
          <include file="..\..\lm3slib\driverlib\sysctl.h"/>
          <include file="..\..\utiles\drivers\rit128x96x4.h"/>
       </source>
-      <source file="..\..\sources\ad.c" lastModified="13efaedc5b3">
+      <source file="..\..\sources\ad.c" lastModified="13f0b070efa">
          <include file="..\..\headers\ad.h"/>
       </source>
       <source file="..\..\freeRTOS7_0_2\queue.c" lastModified="13ed238133a">

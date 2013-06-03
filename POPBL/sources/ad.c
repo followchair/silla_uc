@@ -32,6 +32,7 @@
 ** GLOBAL VARIABLES 												**
 ** 																	**
 **********************************************************************/
+unsigned long ulADC1_Value[1];
 unsigned long ulADC2_Value[1];
 unsigned long ulADC3_Value[1];
 float infra1 = 0;
@@ -42,6 +43,25 @@ char str[10];
 ** LOCAL FUNCTIONS 													**
 ** 																	**
 **********************************************************************/
+float AD_ObtenerValorADC_Channel1() {
+	//ADC CHANNEL 2
+	ADCSequenceStepConfigure(ADC0_BASE, 3, // - Sequence 3
+			0, // - Step 0:
+			ADC_CTL_CH1 | ADC_CTL_IE | ADC_CTL_END // - Analog Input 0, Single-ended, No temp sensor, Interrupt, End of sequence
+	);
+	// Trigger the ADC conversion.
+	ADCProcessorTrigger(ADC0_BASE, 3);
+	// Wait for conversion to be completed.
+	while (!ADCIntStatus(ADC0_BASE, 3, false)) {
+	}
+	// Read ADC Value.
+	ADCSequenceDataGet(ADC0_BASE, 3, ulADC1_Value);
+	ADCIntClear(ADC0_BASE, 3);
+	infra1 = ulADC1_Value[0] * (10.0 / 1023.0);
+	return infra1;
+
+}
+
 /**
  * @brief  Función que mira el valor del canal 2 del ADC.
  *
