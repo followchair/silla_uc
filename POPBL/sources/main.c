@@ -125,12 +125,12 @@ int main( void )
 	/*
 	 * Se crean las tareas
 	 */
-	xTaskCreate( vTask_Recibir_Infrarrojos,"vTask_Recibir_Infrarrojos",200, 10 ,4, &xHandle_Task_Recibir_Infrarrojos );
-	xTaskCreate( vTask_Idle,"vTask_Idle",200, 1000 ,1, NULL );
-	xTaskCreate( vTask_Control,"vTask_Control",200, 1000 , 2, NULL );
+	xTaskCreate( vTask_Recibir_Infrarrojos,"vTask_Recibir_Infrarrojos",200, 50 , 2, &xHandle_Task_Recibir_Infrarrojos );
+	//xTaskCreate( vTask_Idle,"vTask_Idle",200, 1000 ,1, NULL );
+	xTaskCreate( vTask_Control,"vTask_Control",200, 50 , 3, NULL );
 	//xTaskCreate( vTask_Seguridad,"vTask_Seguridad",200, 100 , 5, NULL );
-	xTaskCreate( vTask_Seguridad,"vTask_Seguridad",200, 1000 , 5, NULL );
-	xTaskCreate( vTask_Display,"vTask_Display",200, 1 , 3, NULL );
+	xTaskCreate( vTask_Seguridad,"vTask_Seguridad",200, 100 , 4, NULL );
+	xTaskCreate( vTask_Display,"vTask_Display",200, 500 , 1, NULL );
 	/*
 	 * Se suspende la tarea para recibir los infrarrojos
 	 */

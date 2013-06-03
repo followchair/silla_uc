@@ -84,12 +84,12 @@ void KEYPAD_inicializacion_keypad() {
 	GPIOPinIntEnable(GPIO_PORTF_BASE, GPIO_PIN_1);
 	//Activamos pines del puerto E (botones up, down, right, left)
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
-	GPIOPinTypeGPIOInput(GPIO_PORTE_BASE, GPIO_PIN_0); /*pin 0*/
-	GPIOPadConfigSet(GPIO_PORTE_BASE, GPIO_PIN_0, GPIO_STRENGTH_2MA,
-			GPIO_PIN_TYPE_STD_WPU);
-	GPIOPinTypeGPIOInput(GPIO_PORTE_BASE, GPIO_PIN_1); /*pin 1*/
-	GPIOPadConfigSet(GPIO_PORTE_BASE, GPIO_PIN_1, GPIO_STRENGTH_2MA,
-			GPIO_PIN_TYPE_STD_WPU);
+//	GPIOPinTypeGPIOInput(GPIO_PORTE_BASE, GPIO_PIN_0); /*pin 0*/
+//	GPIOPadConfigSet(GPIO_PORTE_BASE, GPIO_PIN_0, GPIO_STRENGTH_2MA,
+//			GPIO_PIN_TYPE_STD_WPU);
+//	GPIOPinTypeGPIOInput(GPIO_PORTE_BASE, GPIO_PIN_1); /*pin 1*/
+//	GPIOPadConfigSet(GPIO_PORTE_BASE, GPIO_PIN_1, GPIO_STRENGTH_2MA,
+//			GPIO_PIN_TYPE_STD_WPU);
 	GPIOPinTypeGPIOInput(GPIO_PORTE_BASE, GPIO_PIN_2); /*pin 2*/
 	GPIOPadConfigSet(GPIO_PORTE_BASE, GPIO_PIN_2, GPIO_STRENGTH_2MA,
 			GPIO_PIN_TYPE_STD_WPU);
@@ -98,9 +98,9 @@ void KEYPAD_inicializacion_keypad() {
 			GPIO_PIN_TYPE_STD_WPU);
 	//Activamos y configuramos las interrupciones del puerto E
 	IntEnable(INT_GPIOE);
-	GPIOIntTypeSet(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2
+	GPIOIntTypeSet(GPIO_PORTE_BASE,  GPIO_PIN_2
 			| GPIO_PIN_3, GPIO_RISING_EDGE);
-	GPIOPinIntEnable(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2
+	GPIOPinIntEnable(GPIO_PORTE_BASE, GPIO_PIN_2
 			| GPIO_PIN_3);
 }
 /**
