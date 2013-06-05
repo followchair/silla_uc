@@ -43,6 +43,7 @@ extern tBoolean g_abajo;
 extern tBoolean g_izquierda;
 extern tBoolean g_derecha;
 extern tBoolean g_select;
+extern tBoolean boton_emerg;
 /*********************************************************************
  ** 																**
  ** LOCAL FUNCTIONS 												**
@@ -190,6 +191,77 @@ void PINES_inicializar_int_both_edges(int ulport,
 	GPIOIntTypeSet(puerto, pin, GPIO_BOTH_EDGES);
 	GPIOPinIntEnable(puerto, pin);
 }
+
+/**
+ * @brief  Función para inicializar la interrupción del pin 0 y el pin 1 del puerto B.
+ *
+ * @return      -
+ *
+*/
+void PINES_inicializar_int_pos_edge(int ulport,
+		int ucPins) {
+	unsigned long puerto, periferico;
+	unsigned char pin;
+	switch (ucPins) {
+	case 0:
+		pin = GPIO_PIN_0;
+		break;
+	case 1:
+		pin = GPIO_PIN_1;
+		break;
+	case 2:
+		pin = GPIO_PIN_2;
+		break;
+	case 3:
+		pin = GPIO_PIN_3;
+		break;
+	case 4:
+		pin = GPIO_PIN_4;
+		break;
+	case 5:
+		pin = GPIO_PIN_5;
+		break;
+	case 6:
+		pin = GPIO_PIN_6;
+		break;
+	case 7:
+		pin = GPIO_PIN_7;
+		break;
+	}
+	switch (ulport) {
+	case PORT_A:
+		periferico = INT_GPIOA;
+		puerto = GPIO_PORTA_BASE;
+		break;
+	case PORT_B:
+		periferico = INT_GPIOB;
+		puerto = GPIO_PORTB_BASE;
+		break;
+	case PORT_C:
+		periferico = INT_GPIOC;
+		puerto = GPIO_PORTC_BASE;
+		break;
+	case PORT_D:
+		periferico = INT_GPIOD;
+		puerto = GPIO_PORTD_BASE;
+		break;
+	case PORT_E:
+		periferico = INT_GPIOE;
+		puerto = GPIO_PORTE_BASE;
+		break;
+	case PORT_F:
+		periferico = INT_GPIOF;
+		puerto = GPIO_PORTF_BASE;
+		break;
+	case PORT_G:
+		periferico = INT_GPIOG;
+		puerto = GPIO_PORTG_BASE;
+		break;
+	}
+	IntEnable(periferico);
+	GPIOIntTypeSet(puerto, pin, GPIO_RISING_EDGE);
+	GPIOPinIntEnable(puerto, pin);
+}
 /**
  * @brief  Rutina de interrupción de los pines del puerto B.
  *
@@ -277,6 +349,23 @@ void __attribute__((interrupt)) PortDInterruptHandler(void) {
 	/*
 	 * Miramos si la interrupción ha sido provocada por el pin 0
 	 */
+	if (temp & GPIO_PIN_4) {
+			unsigned long estado_pin;
+			ul_port = GPIO_PORTD_BASE;
+			uc_pin = GPIO_PIN_4;
+			estado_pin = GPIOPinRead(ul_port, uc_pin);
+			//estado_pin = estado_pin & 0x1F;
+			/*
+			 * Si el flanco ha sido positivo
+			 */
+
+				if (boton_emerg == 1) boton_emerg = 0;
+				else boton_emerg = 1;
+
+
+
+		}
+
 	if (temp & GPIO_PIN_6) {
 		unsigned long estado_pin;
 		ul_port = GPIO_PORTD_BASE;

@@ -34,8 +34,9 @@
 /*------------------- Variables Globales -----------------------*/
 /*---------------------------------------------------------------*/
 
-real_T Kpx = 3;
-real_T Kpy = 5;
+real_T Kpx = 0.4;
+real_T Kpy = 0.8;
+real_T diferencia_distancia = 0;
 
 /* External inputs (root inport signals with auto storage) */
 ExternalInputs_stellaris_1 stellaris_1_U;
@@ -96,10 +97,26 @@ void stellaris_1_step(void)
    *  Inport: '<Root>/Sens4'
    */
   if (rtb_Mode) {
-    rtb_Mode_0 = stellaris_1_U.Sens1;
+
+		if(stellaris_1_U.Sens1> stellaris_1_U.Sens2-0.5){
+			rtb_Mode_0 = stellaris_1_U.Sens1;
+		}else{
+			rtb_Mode_0 = stellaris_1_U.Sens2;
+		}
+
   } else {
-    rtb_Mode_0 = stellaris_1_U.Sens4;
+
+
+		if(stellaris_1_U.Sens4> stellaris_1_U.Sens5-0.5){
+			rtb_Mode_0 = stellaris_1_U.Sens4;
+		}else{
+			rtb_Mode_0 = stellaris_1_U.Sens5;
+
+			//rtb_Mode_0 = stellaris_1_U.Sens4;
+		}
   }
+
+
 
   /* End of Switch: '<S3>/Switch' */
 
@@ -109,10 +126,13 @@ void stellaris_1_step(void)
    *  Gain: '<S2>/Kpxneg'
    *  Sum: '<S2>/DistanciaAsistente'
    */
+
+  if((rtb_Mode_0<= 3.5) && (rtb_Mode_0 >= 2.5) ) rtb_Mode_0 =3.0;
+  if(rtb_Mode_0>8.0) rtb_Mode_0 = 8.0;
   if (rtb_Mode) {
-    rtb_Switch3 = (rtb_Mode_0 - 1.0) * Kpx;
+    rtb_Switch3 = (rtb_Mode_0 - 3.0) * Kpx;
   } else {
-    rtb_Switch3 = (rtb_Mode_0 - 1.0) * (-Kpx);
+    rtb_Switch3 = (rtb_Mode_0 - 3.0) * (-Kpx);
   }
 
   /* End of Switch: '<S2>/Switch3' */
@@ -120,6 +140,11 @@ void stellaris_1_step(void)
   /* Gain: '<S2>/Kpy' incorporates:
    *  Sum: '<S2>/Add'
    */
+  diferencia_distancia = rtb_SensorDelantero-rtb_SensorTrasero;
+  if((diferencia_distancia<=0.5)&& (diferencia_distancia>=-0.5)){
+
+	  rtb_SensorDelantero = rtb_SensorTrasero;
+  }
   rtb_DistanciaAsistente = (rtb_SensorDelantero - rtb_SensorTrasero) * Kpy;
 
   /* Switch: '<S2>/Switch2' incorporates:
@@ -143,12 +168,12 @@ void stellaris_1_step(void)
     rtb_Mode_0 = rtb_Switch3 + rtb_DistanciaAsistente;
 
     /* Saturate: '<S2>/Saturation' */
-    if (rtb_Mode_0 >= 10.0) {
+    if (rtb_Mode_0 >= 5.0) {
       /* Outport: '<Root>/Ref_Motor1' */
-      stellaris_1_Y.Ref_Motor1 = 10.0;
-    } else if (rtb_Mode_0 <= -10.0) {
+      stellaris_1_Y.Ref_Motor1 = 5.0;
+    } else if (rtb_Mode_0 <= 0) {
       /* Outport: '<Root>/Ref_Motor1' */
-      stellaris_1_Y.Ref_Motor1 = -10.0;
+      stellaris_1_Y.Ref_Motor1 = 0;
     } else {
       /* Outport: '<Root>/Ref_Motor1' */
       stellaris_1_Y.Ref_Motor1 = rtb_Mode_0;
@@ -160,12 +185,12 @@ void stellaris_1_step(void)
     rtb_Mode_0 = rtb_DistanciaAsistente - rtb_Switch3;
 
     /* Saturate: '<S2>/Saturation1' */
-    if (rtb_Mode_0 >= 10.0) {
+    if (rtb_Mode_0 >= 5.0) {
       /* Outport: '<Root>/Ref_Motor2' */
-      stellaris_1_Y.Ref_Motor2 = 10.0;
-    } else if (rtb_Mode_0 <= -10.0) {
+      stellaris_1_Y.Ref_Motor2 = 5.0;
+    } else if (rtb_Mode_0 <= 0) {
       /* Outport: '<Root>/Ref_Motor2' */
-      stellaris_1_Y.Ref_Motor2 = -10.0;
+      stellaris_1_Y.Ref_Motor2 = 0;
     } else {
       /* Outport: '<Root>/Ref_Motor2' */
       stellaris_1_Y.Ref_Motor2 = rtb_Mode_0;

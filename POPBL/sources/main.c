@@ -93,6 +93,7 @@ int main( void )
 
 	//PINES_inicializar(PORT_B,4);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
+	PINES_inicializar(PORT_D,4);
 	PINES_inicializar(PORT_D,6);
 	PINES_inicializar(PORT_D,7);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
@@ -120,6 +121,7 @@ int main( void )
 	 */
 /*	PINES_inicializar_int_both_edges(PORT_B, 0);
 	PINES_inicializar_int_both_edges(PORT_B, 1);*/
+	PINES_inicializar_int_pos_edge(PORT_D, 4);
 	PINES_inicializar_int_both_edges(PORT_D, 6);
 	PINES_inicializar_int_both_edges(PORT_D, 7);
 	/*

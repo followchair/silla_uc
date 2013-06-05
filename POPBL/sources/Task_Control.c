@@ -32,10 +32,12 @@ double ref_motor2 = 0;
 unsigned long int periodo = 20000;
 float duty1 = 0;
 float duty2 = 0;
+float dif_motor = 0;
+float dif_max = 6;
 extern tBoolean g_parada_seguridad;
 int cntControl = 0;
-
 extern float sens1, sens2, sens3, sens4, sens5, sens6;
+float P_S1 = 0.0, P_S2 = 0.0, P_S3 = 1.0, P_S4 = 3.0, P_S5 = 0.0, P_S6 = 0.0;
 /*---------------------------------------------------------------*/
 /*------------------Funciones privadas --------------------------*/
 /*---------------------------------------------------------------*/
@@ -110,23 +112,21 @@ void rt_OneStep(void)
 //@todo asignar a cada variable su sensor (al juntar programa con el de ane)
 
 
-//  stellaris_1_U.Sens1 = sens4;
-//  stellaris_1_U.Sens2 = sens3;
-//  stellaris_1_U.Sens3 = sens6;
-//  stellaris_1_U.Sens4 = sens5;
-//  stellaris_1_U.Sens5 = sens2;
-//  stellaris_1_U.Sens6 = sens1;
-  stellaris_1_U.Sens1 = 1;
-  stellaris_1_U.Sens2 = 3;
+  //  stellaris_1_U.Sens1 = P_S5;
+  //  stellaris_1_U.Sens2 = P_S6;
+  //  stellaris_1_U.Sens3 = P_S1;
+  //  stellaris_1_U.Sens4 = P_S4;
+  //  stellaris_1_U.Sens5 = P_S3;
+  //  stellaris_1_U.Sens6 = P_S2;
 
-  stellaris_1_U.Sens3 = 2.5;
-  stellaris_1_U.Sens4 = 0.0;
-  stellaris_1_U.Sens5 = 0.0;
-  stellaris_1_U.Sens6 = 0.0;
+    stellaris_1_U.Sens1 = sens5;
+    stellaris_1_U.Sens2 = sens6;
+    stellaris_1_U.Sens3 = sens1;
+    stellaris_1_U.Sens4 = sens4;
+    stellaris_1_U.Sens5 = sens3;
+    stellaris_1_U.Sens6 = sens2;
   stellaris_1_U.STOP = g_parada_seguridad;
-  //stellaris_1_U.STOP = 0;
-
-  //  i = 1;
+//  i = 1;
 
 
 
@@ -138,6 +138,15 @@ void rt_OneStep(void)
   ref_motor1  = stellaris_1_Y.Ref_Motor1;
   ref_motor2  = stellaris_1_Y.Ref_Motor2;
 
+ /* dif_motor = ref_motor1 - ref_motor2;
+  if(dif_motor<=-dif_max){
+	  ref_motor1 = ref_motor2-dif_max;
+  }
+  else if(dif_motor>=dif_max){
+	  ref_motor2 = ref_motor1-dif_max;
+
+  }*/
+
   /* Indicate task complete */
   OverrunFlag = FALSE;
 
@@ -145,8 +154,8 @@ void rt_OneStep(void)
 
   /*Calculo de los duty cycles -> uno tiene malda positiva y la otra negativa, ya que lo motores
   en el robot estan invertidos*/
-  duty1 = 0.001*ref_motor1 + 1.5/20;
-  duty2 = -0.001*ref_motor2 + 1.5/20;
+  duty1 = -0.001*ref_motor1 + 1.5/20;
+  duty2 = 0.001*ref_motor2 + 1.5/20;
 
   /* Activar PWM*/
 

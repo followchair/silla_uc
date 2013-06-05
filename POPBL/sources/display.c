@@ -113,14 +113,17 @@ void DISPLAY_indicar_estado(int state) {
 	case 10: /*Estado "leyendo on 4"*/
 		texto = "leyendo on 4						";
 		break;
+	case 11: /*Estado "señal perdida4"*/
+			texto = "Perdida de la señal						";
+			break;
 	}
 	/*
 	 * Se escribe en el framebuffer
 	 */
 	FRAME_BUFFER_change_text(texto, 1);
-	//FRAME_BUFFER_change_text("																				", 2);
-	//FRAME_BUFFER_change_text("																		", 3);
-	//FRAME_BUFFER_change_text("																		", 4);
+//	FRAME_BUFFER_change_text("																				", 2);
+//	FRAME_BUFFER_change_text("																		", 3);
+//	FRAME_BUFFER_change_text("																		", 4);
 
 
 

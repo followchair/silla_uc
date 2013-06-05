@@ -66,6 +66,7 @@ recibir infrarrojos*/
 ******************************************************************************/
 void PINES_inicializar(int ulport,int ucPins);
 void PINES_inicializar_int_both_edges(int ulport,int ucPins);
+void PINES_inicializar_int_pos_edge(int ulport,	int ucPins);
 /*****************************************************************************
 ** 																			**
 ** EOF 																		**

@@ -50,6 +50,7 @@ extern tBoolean g_parada_seguridad;
 extern tBoolean obstaculo;
 extern tBoolean escalon;
 extern tBoolean bateria;
+extern tBoolean boton_emerg;
 /*********************************************************************
 ** 																	**
 ** LOCAL FUNCTIONS 													**
@@ -81,6 +82,12 @@ void vTask_Display( void *pvParameters ){
 	    	FRAME_BUFFER_change_text("										", 3);
 	    	FRAME_BUFFER_change_text("										", 4);
 	    	FRAME_BUFFER_change_text("												", 5);
+	    }
+	    if(estado==ACTIVADO){
+	    	FRAME_BUFFER_change_text("																				", 2);
+	    	FRAME_BUFFER_change_text("																		", 3);
+	    	FRAME_BUFFER_change_text("																		", 4);
+
 	    }
 		sprintf(str, "Inf3: %.1f", sens3);
 			FRAME_BUFFER_change_text(str, 7);
@@ -114,6 +121,9 @@ void vTask_Display( void *pvParameters ){
 			}
 			if(bateria == 1){
 				seguridad = 3;
+			}
+			if(boton_emerg == 1){
+				seguridad = 4;
 			}
 		}
 

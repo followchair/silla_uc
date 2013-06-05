@@ -55,6 +55,7 @@
 #define LEER_ON_3	8
 #define LEER_OFF_4	9
 #define LEER_ON_4	10
+#define PERDIDA_SENAL	11
 
 /*Tiempos*/
 #define PERIODO			8000
@@ -64,6 +65,8 @@
 #define T_205_MS		1800000  // 225ms
 #define TICKS_90MS		91
 #define TICKS_190MS		191 /*EZPAU ITEN PROBAU 191 KIN TA 101EKIN*/
+
+#define	SENAL_MINIMA	0.5
 
 /*Macros*/
 #define		TIEMPO_ENTRE_FLANCOS	g_ul_xTimeTimerOn - g_ul_xTimeTimerOff1 + g_cycles*PERIODO
@@ -113,6 +116,8 @@ tBoolean RECECPCION_INFRARROJOS_fev_t_largo (void);
 tBoolean RECECPCION_INFRARROJOS_fev_derecha_pulsado();
 tBoolean RECECPCION_INFRARROJOS_fev_izquierda_pulsado();
 tBoolean RECECPCION_INFRARROJOS_fev_comunicacion_activada();
+tBoolean RECECPCION_INFRARROJOS_fev_comunicacion_perdida();
+tBoolean RECECPCION_INFRARROJOS_fev_comunicacion_recuperada();
 /*
  * Acciones
  */
@@ -130,6 +135,7 @@ void RECECPCION_INFRARROJOS_fac_cancelar (void);
 void RECEPCION_INFRARROJOS_fac_borrar_inter(void);
 void RECECPCION_INFRARROJOS_fac_preguntar(void);
 void RECECPCION_INFRARROJOS_fac_medir_senal(void);
+void RECECPCION_INFRARROJOS_fac_indicar_perdida();
 /*
  *
  */

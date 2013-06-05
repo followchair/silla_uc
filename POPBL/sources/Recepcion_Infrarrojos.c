@@ -76,7 +76,12 @@ FIN_ESTADO(preguntar, PREGUNTAR, NULL)
 ESTADO(activado)
 ITEM_EAC(LEER_OFF_3,RECECPCION_INFRARROJOS_fev_flanco_negativo,RECECPCION_INFRARROJOS_fac_leer_off_3)
 ITEM_EAC(ACTIVADO,RECECPCION_INFRARROJOS_fev_comunicacion_activada,RECECPCION_INFRARROJOS_fac_medir_senal)
+ITEM_EAC(PERDIDA_SENAL,RECECPCION_INFRARROJOS_fev_comunicacion_perdida,RECECPCION_INFRARROJOS_fac_indicar_perdida)
 FIN_ESTADO(activado, ACTIVADO, NULL)
+/*Estado perdida de la señal*/
+ESTADO(perdida_senal)
+ITEM_EAC(ACTIVADO,RECECPCION_INFRARROJOS_fev_comunicacion_recuperada,RECECPCION_INFRARROJOS_fac_activar)
+FIN_ESTADO(perdida_senal, PERDIDA_SENAL, NULL)
 /*Estado leer off 3*/
 ESTADO(leer_off_3)
 ITEM_EAC(LEER_OFF_3,RECECPCION_INFRARROJOS_fev_flanco_t_corto_min,RECEPCION_INFRARROJOS_fac_borrar_inter)
@@ -109,6 +114,7 @@ leer_off, &
 leer_on_2, &
 leer_off_2, &preguntar,
 &activado,
+&perdida_senal,
 &leer_off_3,
 &leer_on_3,
 &leer_off_4,
@@ -452,6 +458,7 @@ void RECECPCION_INFRARROJOS_fac_activar(void) {
 	estado = ACTIVADO;
 	g_comunicacion_activada = TRUE;
 	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_0, 1);
+
 }
 /**
  * @brief  Acción que se realiza al desactivar la comunicación.
@@ -464,6 +471,12 @@ void RECECPCION_INFRARROJOS_fac_desactivar(void) {
 
 	estado = ESPERAR;
 	g_comunicacion_activada = FALSE;
+	sens1 = 0.0;
+	sens2 = 0.0;
+	sens3 = 0.0;
+	sens4 = 0.0;
+	sens5 = 0.0;
+	sens6 = 0.0;
 	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_0, 0);
 	vTaskSuspend(xHandle_Task_Recibir_Infrarrojos);
 }
@@ -597,6 +610,35 @@ tBoolean RECEPCION_INFRARROJOS_mirar_flanco_negativo() {
 
 tBoolean RECECPCION_INFRARROJOS_fev_comunicacion_activada(){
 	return g_comunicacion_activada;
+}
+tBoolean RECECPCION_INFRARROJOS_fev_comunicacion_perdida(){
+	//if ((sens1 < SENAL_MINIMA) && (sens2 < SENAL_MINIMA) && (sens3 < SENAL_MINIMA) && (sens4 < SENAL_MINIMA) && (sens5 < SENAL_MINIMA) && (sens6 < SENAL_MINIMA)){
+	if ((sens1 < 0.5) && (sens2 < 0.5) && (sens3 < 0.5) && (sens4 < 0.5) && (sens5 < 0.5) && (sens6 < 0.5)){
+	return true;
+	}
+	else{
+		return false;
+	}
+}
+tBoolean RECECPCION_INFRARROJOS_fev_comunicacion_recuperada(){
+	RECECPCION_INFRARROJOS_fac_medir_senal();
+	if ((sens1 > 0.5) || (sens2 > 0.5) || (sens3 > 0.5) || (sens4 > 0.5) || (sens5 > 0.5) || (sens6 > 0.5)){
+		return true;
+	}
+	else{
+		RECECPCION_INFRARROJOS_fac_indicar_perdida();
+		return false;
+
+	}
+}
+void RECECPCION_INFRARROJOS_fac_indicar_perdida(){
+	estado = PERDIDA_SENAL;
+	sens1 = 0.0;
+	sens2 = 0.0;
+	sens3 = 0.0;
+	sens4 = 0.0;
+	sens5 = 0.0;
+	sens6 = 0.0;
 }
 void RECECPCION_INFRARROJOS_fac_medir_senal(){
 
